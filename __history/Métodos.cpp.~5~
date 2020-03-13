@@ -1,0 +1,157 @@
+
+//------------------------------Librerias---------------------------------------
+
+	#pragma hdrstop
+
+	#include "Métodos.h"
+	#include <iostream>
+	#include <string>
+	using namespace std;
+
+//------------------------------Variables---------------------------------------
+
+	int OpcionMenu = 0;
+	int AnchoPantalla = 0;
+	int LargoPantalla = 0;
+	string Resolucion = 0;
+
+//------------------------------------------------------------------------------
+
+	#pragma package(smart_init)
+
+//------------------------------Interfaz----------------------------------------
+
+	//-----------------------------Colores----------------------------------
+
+		void Color(int Background, int Text)
+		{
+			// Función para cambiar el color del fondo y/o pantalla
+
+			HANDLE Console = GetStdHandle(STD_OUTPUT_HANDLE); // Tomamos la consola.
+			// Para cambiar el color, se utilizan números desde el 0 hasta el 255.
+			// Pero, para convertir los colores a un valor adecuado, se realiza el siguiente cálculo.
+			int    New_Color= Text + (Background * 16);
+			SetConsoleTextAttribute(Console, New_Color); // Guardamos los cambios en la Consola.
+		}
+
+	//----------------------------Fullscreen-------------------------------
+
+		void Fullscreen()
+		{
+			keybd_event(VK_MENU,
+						   0x38,
+							  0,
+							  0);
+			keybd_event(VK_RETURN,
+							 0x1c,
+								0,
+								0);
+			keybd_event(VK_RETURN,
+							 0x1c,
+				  KEYEVENTF_KEYUP,
+								0);
+			keybd_event(VK_MENU,
+						   0x38,
+				KEYEVENTF_KEYUP,
+							  0);
+			return;
+		}
+
+	//---------------------Obtener Resolución Pantalla--------------------
+
+		string Resolucion()
+		{
+			AnchoPantalla = (GetSystemMetrics(SM_CXSCREEN) / 8) - 2;
+			AltoPantalla = (GetSystemMetrics(SM_CYSCREEN) / 19) + 1;
+
+			Resolucion = AnchoPantalla + ";" + LargoPantalla;
+
+			return Resolucion;
+		}
+
+	//------------------------------Menú------------------------------------
+
+		int Menu()
+		{
+			//Información
+			Color(0,4);
+			gotoxy ((AnchoPantalla - 2)/2 - 20, 2);
+			cout<< "Universidad De San Carlos De Guatemala" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 12, 4);
+			cout<< "Facultad De Ingenieria" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 11, 6);
+			cout<< "Estructuras De Datos" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 6, 8);
+			cout<< "Proyecto 1" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 17, 10);
+			Color(0,1);
+			cout<< "Sergio Alexander Echigoyen Gomez" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 6, 12);
+			cout<< "201801628" <<endl;
+
+			//Menú
+			Color(0,6);
+			gotoxy ((AnchoPantalla - 2)/2 - 4, 20);
+			cout<< "Menu" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 11, 22);
+			cout<< "1. Lectura De Archivo" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 11, 24);
+			cout<< "2. Juego" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 11, 26);
+			cout<< "3. Reportes" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 11, 28);
+			cout<< "4. Salir" <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 - 11, 30);
+			cout<< "Elija Una Opcion: " <<endl;
+			gotoxy ((AnchoPantalla - 2)/2 + 8, 30);
+
+			cin>> OpcionMenu;
+
+			return OpcionMenu;
+		}
+
+	//-----------------------------Marcos-----------------------------------
+
+		void gotoxy(int x, int y)
+		{
+			COORD coord;
+			coord.X = x;
+			coord.Y = y;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		}
+
+		void MarcoMenu(int Col1, int Col2, int Fil1, int Fil2)
+		{
+			Color(0,9);
+			for(int Cols = Col1; Cols <= Col2; Cols++)
+			{
+				for(int Fils = Fil1; Fils <= Fil2; Fils++)
+				{
+					gotoxy(Cols,Fils);
+					//Linea Vertical Derecha E Izquierda
+					if((Cols == Col1 || Cols == Col2) && (Fils != Fil1 && Fils != Fil2))
+					{
+						cout << (char)186;
+					}
+					//Linea Horizontal Superior E Inferior
+					else if((Fils == Fil1 || Fils == Fil2) && (Cols != Col1 && Cols != Col2))
+					{
+						cout << (char)205;
+					}
+				}
+			}
+
+			//Esquina Superior Izquierda
+			gotoxy(Col1,Fil1);
+			cout << (char)201;
+			//Esquina Inferior Izquierda
+			gotoxy(Col1,Fil2);
+			cout << (char)200;
+			//Esquina Superior Derecha
+			gotoxy(Col2,Fil1);
+			cout << (char)187;
+			//Esquina Inferior Derecha
+			gotoxy(Col2,Fil2);
+			cout << (char)188;
+		}
+

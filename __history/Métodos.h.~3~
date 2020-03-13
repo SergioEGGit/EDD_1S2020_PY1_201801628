@@ -1,0 +1,24 @@
+
+//------------------------------------------------------------------------------
+
+	#ifndef MétodosH
+	#define MétodosH
+
+//------------------------------------------------------------------------------
+
+	#endif
+
+//--------------------------Definición Métodos----------------------------------
+
+	void Color(int Background, int Text);
+
+	void Fullscreen();
+
+	void Resolucion();
+
+	int Menu();
+
+	void gotoxy(int x, int y);
+
+	void MarcoMenu(int Col1, int Col2, int Fil1, int Fil2);
+
