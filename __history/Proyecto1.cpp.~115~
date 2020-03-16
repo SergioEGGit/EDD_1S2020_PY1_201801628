@@ -81,10 +81,7 @@
                                 system("cls");
                                 MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 								MenuJugar();
-								for(Contador = 0; Contador <= 5; Contador++)
-								{
-									cout<< RecorridoPreOrden(ArbolJugadores);
-								}
+								cout<< RecorridoPreOrden(ArbolJugadores);
 								system("pause > 0");
 							break;
 

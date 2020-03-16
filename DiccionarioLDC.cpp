@@ -1,0 +1,160 @@
+//------------------------------------------------------------------------------
+
+	#pragma hdrstop
+
+//---------------------------------Librerias------------------------------------
+
+	#include <iostream>
+	#include <stdio.h>
+	#include <conio.h>
+	#include <string>
+	#include <cstdlib>
+	#include <fstream>
+	#include <windows.h>
+	#include "DiccionarioLDC.h"
+	using namespace std;
+
+//------------------------------------------------------------------------------
+
+	#pragma package(smart_init)
+
+//---------------------------------Métodos--------------------------------------
+
+	void InsertarPrimeroPalabraDLDC(ListaDLDC &Lista, string Palabra)
+	{
+		ListaDLDC aux = new(struct Diccionario);
+		aux -> Palabra = Palabra;
+
+		if(Lista == NULL)
+		{
+			aux -> sgte = aux;
+			aux -> ante = aux;
+			Lista = aux;
+		}
+		else
+		{
+			ListaDLDC Ultimo = Lista -> ante;
+			aux -> sgte = Lista;
+			aux -> ante = Ultimo;
+			Lista -> ante = aux;
+			Ultimo -> sgte = aux;
+			Lista = aux;
+		}
+	}
+
+	void InsertarUltimoPalabraDLDC(ListaDLDC &Lista, string Palabra)
+	{
+		ListaDLDC aux = new(struct Diccionario);
+		aux -> Palabra = Palabra;
+
+		if(Lista == NULL)
+		{
+			aux -> sgte = aux;
+			aux -> ante = aux;
+			Lista = aux;
+		}
+		else
+		{
+			ListaDLDC Ultimo = Lista -> ante;
+			aux -> sgte = Lista;
+			aux -> ante = Ultimo;
+			Lista -> ante = aux;
+			Ultimo -> sgte = aux;
+		}
+	}
+
+	bool EstaVaciaDLDC(ListaDLDC &Lista)
+	{
+		if(Lista == NULL)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	void ImprimirDLDC(ListaDLDC &Lista)
+	{
+		if (!EstaVaciaDLDC(Lista))
+		{
+			int Contador = 1;
+			ListaDLDC aux = Lista;
+			do
+			{
+				cout<< Contador << ". " << aux -> Palabra <<endl;
+				aux = aux -> sgte;
+				Contador++;
+			}
+			while(aux != Lista);
+		}
+	}
+
+	int CantidadDLDC(ListaDLDC &Lista)
+	{
+		int Cant = 0;
+
+		if(!EstaVaciaDLDC(Lista))
+		{
+			ListaDLDC aux = Lista;
+			do
+			{
+				Cant++;
+				aux = aux -> sgte;
+			}
+			while(aux != Lista);
+		}
+		return Cant;
+	}
+
+	void EliminarPalabraDLDC(ListaDLDC &Lista, int Posicion)
+	{
+		if(CantidadDLDC(Lista) != 0)
+		{
+			if(Posicion <= CantidadDLDC(Lista))
+			{
+				if(Posicion == 1)
+				{
+					if(CantidadDLDC(Lista) == 1)
+					{
+						delete Lista;
+						Lista = NULL;
+					}
+					else
+					{
+						ListaDLDC Borrar = Lista;
+						ListaDLDC Ultimo = Lista -> ante;
+						Lista = Lista -> sgte;
+						Ultimo -> sgte = Lista;
+						Lista -> ante = Ultimo;
+						delete Borrar;
+					}
+				}
+				else
+				{
+					ListaDLDC aux = Lista;
+					for(int i = 1; i <= Posicion - 1; i++)
+					{
+						aux = aux -> sgte;
+					}
+					ListaDLDC Borrar = aux;
+					ListaDLDC Anterior = aux -> ante;
+					aux = aux -> sgte;
+					Anterior -> sgte = aux;
+					aux -> ante = Anterior;
+					delete Borrar;
+				}
+			}
+			else
+			{
+				cout<< "La Valor Indicado No Existe En La Lista" << endl;
+				system("pause > 0");
+			}
+		}
+		else
+		{
+			cout<< "Lista Vacia" << endl;
+            system("pause > 0");
+        }
+	}

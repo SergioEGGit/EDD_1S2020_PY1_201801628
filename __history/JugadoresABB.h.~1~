@@ -1,0 +1,41 @@
+//------------------------------------------------------------------------------
+
+	#ifndef JugadoresABBH
+	#define JugadoresABBH
+
+//------------------------------Librerias---------------------------------------
+
+	#include <iostream>
+	#include <stdio.h>
+	#include <conio.h>
+	#include <string>
+	#include <windows.h>
+	#include <fstream>
+	#include <algorithm>
+	#include <functional>
+	#include <cctype>
+	#include <locale>
+	#include <cstring>
+	using namespace std;
+
+//-----------------------------Estructura---------------------------------------
+
+	struct Jugadores
+	{
+		string Nombre;
+		struct Jugadores *RIGHT;
+		struct Jugadores *LEFT;
+	};
+
+	typedef struct Jugadores *ArbolABB;
+
+
+//-----------------------------Métodos------------------------------------------
+
+	ArbolABB CrearNombreABB(string Nombre);
+
+	void InsertarNombreABB(ArbolABB &Arbol, string Nombre);
+
+//------------------------------------------------------------------------------
+
+	#endif

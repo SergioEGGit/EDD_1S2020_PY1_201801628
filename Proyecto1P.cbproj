@@ -107,6 +107,18 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
     </PropertyGroup>
     <ItemGroup>
+        <CppCompile Include="DiccionarioLDC.cpp">
+            <DependentOn>DiccionarioLDC.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="FichasCola.cpp">
+            <DependentOn>FichasCola.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="JugadoresABB.cpp">
+            <DependentOn>JugadoresABB.h</DependentOn>
+            <BuildOrder>5</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Metodos.cpp">
             <DependentOn>Metodos.h</DependentOn>
             <BuildOrder>2</BuildOrder>

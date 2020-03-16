@@ -132,7 +132,7 @@
 		void MenuJugar()
 		{
 			//Menú
-			Color(0,13);
+			Color(0,5);
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 4, 4);
 			cout<< "Menu" <<endl;
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 6);

@@ -36,7 +36,6 @@
 		extern int DimensionTablero;
 		extern string LetraColaFichas;
 		extern int PunteoColaFichas;
-        extern string NombreJugador;
 	};
 
 //--------------------------Definición Métodos----------------------------------
@@ -85,7 +84,7 @@
 
 	//--------------------------Agregar Jugadores---------------------------
 
-		void AgregarJugadores();
+	    string AgregarJugadores();
 
 	//-----------------------------Reportes---------------------------------
 

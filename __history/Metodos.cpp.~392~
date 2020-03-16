@@ -41,7 +41,6 @@
 	int Variables::OpcionReporte = 0;
 	string Variables::LetraColaFichas = "";
 	int Variables::PunteoColaFichas = 0;
-	string Variables::NombreJugador = "";
 
 //------------------------------Interfaz----------------------------------------
 
@@ -132,18 +131,18 @@
 		void MenuJugar()
 		{
 			//Menú
-			Color(0,13);
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 4, 4);
+			Color(0,6);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 4, 2);
 			cout<< "Menu" <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 6);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 4);
 			cout<< "1. Nueva Partida" <<endl;
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 6);
+			cout<< "2. Historial Partidas" <<endl;
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 8);
-			cout<< "2. Agregar Jugadores" <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 10);
 			cout<< "3. Score Board" <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 12);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 10);
 			cout<< "4. Salir" <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 14);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 12);
 			cout<< "Elija Una Opcion: " <<endl;
 			gotoxy ((Variables::AnchoPantalla - 2)/2 + 8, 14);
 
@@ -260,66 +259,13 @@
 			gotoxy((Variables::AnchoPantalla/2) - 18,Fil1 + 1);
 			cout << "         Scrabble++ SEG";
 			Color(0,12);
-			gotoxy(Col1 + 50,Fil1 + 2);
+			gotoxy(Col1 + 50,Fil1 + 3);
 			cout << "Si Desea Regresar Al Menu Principal Ingresa La Palabra Salir... ";
 			Color(0,9);
 			gotoxy(Col1 + 50,Fil1 + 5);
 			cout << "Ingrese La Ruta Del Archivo: ";
 			Color(0, 13);
 			cin >> Variables::RutaArchivo;
-		}
-
-		void MarcoJugar(int Col1, int Col2, int Fil1, int Fil2)
-		{
-			Color(0,9);
-			for(int Cols = Col1; Cols <= Col2; Cols++)
-			{
-				for(int Fils = Fil1; Fils <= Fil2; Fils++)
-				{
-					gotoxy(Cols,Fils);
-					//Linea Vertical Derecha E Izquierda
-					if((Cols == Col1 || Cols == Col2) && (Fils != Fil1 && Fils != Fil2))
-					{
-						cout << (char)186;
-					}
-					//Linea Horizontal Superior E Inferior
-					else if((Fils == Fil1 || Fils == Fil2) && (Cols != Col1 && Cols != Col2))
-					{
-						cout << (char)205;
-					}
-
-                    //Barra De Título
-					else if((Cols != Col1) && (Fils == Fil1 + 2))
-					{
-						cout << (char)205;
-					}
-
-                    //Status Bar
-					else if((Cols != Col1) && (Fils == Fil2 - 4))
-					{
-						cout << (char)205;
-					}
-				}
-			}
-
-			//Esquina Superior Izquierda
-			gotoxy(Col1,Fil1);
-			cout << (char)201;
-			//Esquina Inferior Izquierda
-			gotoxy(Col1,Fil2);
-			cout << (char)200;
-			//Esquina Superior Derecha
-			gotoxy(Col2,Fil1);
-			cout << (char)187;
-			//Esquina Inferior Derecha
-			gotoxy(Col2,Fil2);
-			cout << (char)188;
-
-
-			//Textos
-			Color(0, 4);
-			gotoxy((Variables::AnchoPantalla/2) - 18,Fil1 + 1);
-			cout << "         Scrabble++ SEG";
 		}
 
 		void MarcoReportes(int Col1, int Col2, int Fil1, int Fil2)
@@ -634,17 +580,6 @@
 				}
 			}
 			while(Salida);
-		}
-
-	//--------------------------Agregar Jugadores---------------------------
-
-		void AgregarJugadores()
-		{
-			Color(0,9);
-			gotoxy((Variables::AnchoPantalla/2) - 18, 5);
-			cout << "Ingrese Un Nombre: ";
-			gotoxy((Variables::AnchoPantalla/2) + 1, 5);
-			cin>> Variables::NombreJugador;
 		}
 
 	//-----------------------------Reportes---------------------------------

@@ -132,7 +132,7 @@
 		void MenuJugar()
 		{
 			//Menú
-			Color(0,13);
+			Color(0,6);
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 4, 4);
 			cout<< "Menu" <<endl;
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 6);
@@ -643,7 +643,7 @@
 			Color(0,9);
 			gotoxy((Variables::AnchoPantalla/2) - 18, 5);
 			cout << "Ingrese Un Nombre: ";
-			gotoxy((Variables::AnchoPantalla/2) + 1, 5);
+			gotoxy((Variables::AnchoPantalla/2), 5);
 			cin>> Variables::NombreJugador;
 		}
 

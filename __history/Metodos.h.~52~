@@ -36,7 +36,6 @@
 		extern int DimensionTablero;
 		extern string LetraColaFichas;
 		extern int PunteoColaFichas;
-        extern string NombreJugador;
 	};
 
 //--------------------------Definición Métodos----------------------------------
@@ -69,8 +68,6 @@
 
 		void MarcoArchivo(int Col1, int Col2, int Fil1, int Fil2);
 
-        void MarcoJugar(int Col1, int Col2, int Fil1, int Fil2);
-
 		void MarcoReportes(int Col1, int Col2, int Fil1, int Fil2);
 
 		void MarcoSalir(int Col1, int Col2, int Fil1, int Fil2);
@@ -82,10 +79,6 @@
 	//-------------------------Generar Fichas-------------------------------
 
 		void GenerarFichas(ColaFichas &Cabeza, ColaFichas &Cola);
-
-	//--------------------------Agregar Jugadores---------------------------
-
-		void AgregarJugadores();
 
 	//-----------------------------Reportes---------------------------------
 

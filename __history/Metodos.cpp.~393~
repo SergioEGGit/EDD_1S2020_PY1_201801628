@@ -41,7 +41,6 @@
 	int Variables::OpcionReporte = 0;
 	string Variables::LetraColaFichas = "";
 	int Variables::PunteoColaFichas = 0;
-	string Variables::NombreJugador = "";
 
 //------------------------------Interfaz----------------------------------------
 
@@ -132,18 +131,18 @@
 		void MenuJugar()
 		{
 			//Menú
-			Color(0,13);
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 4, 4);
+			Color(0,6);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 4, 2);
 			cout<< "Menu" <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 6);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 4);
 			cout<< "1. Nueva Partida" <<endl;
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 6);
+			cout<< "2. Historial Partidas" <<endl;
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 8);
-			cout<< "2. Agregar Jugadores" <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 10);
 			cout<< "3. Score Board" <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 12);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 10);
 			cout<< "4. Salir" <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 14);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 11, 12);
 			cout<< "Elija Una Opcion: " <<endl;
 			gotoxy ((Variables::AnchoPantalla - 2)/2 + 8, 14);
 
@@ -260,7 +259,7 @@
 			gotoxy((Variables::AnchoPantalla/2) - 18,Fil1 + 1);
 			cout << "         Scrabble++ SEG";
 			Color(0,12);
-			gotoxy(Col1 + 50,Fil1 + 2);
+			gotoxy(Col1 + 50,Fil1 + 3);
 			cout << "Si Desea Regresar Al Menu Principal Ingresa La Palabra Salir... ";
 			Color(0,9);
 			gotoxy(Col1 + 50,Fil1 + 5);
@@ -634,17 +633,6 @@
 				}
 			}
 			while(Salida);
-		}
-
-	//--------------------------Agregar Jugadores---------------------------
-
-		void AgregarJugadores()
-		{
-			Color(0,9);
-			gotoxy((Variables::AnchoPantalla/2) - 18, 5);
-			cout << "Ingrese Un Nombre: ";
-			gotoxy((Variables::AnchoPantalla/2) + 1, 5);
-			cin>> Variables::NombreJugador;
 		}
 
 	//-----------------------------Reportes---------------------------------

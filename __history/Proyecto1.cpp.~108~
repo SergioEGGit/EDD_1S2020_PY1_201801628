@@ -46,12 +46,11 @@
 		MarcoMenu(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 		MenuPrincipal();
 
+
 		ListaDLDC ListaDobleCircularDiccionario = NULL;
 		ColaFichas ColaFichasCabeza = NULL;
 		ColaFichas ColaFichasCola = NULL;
 		ArbolABB ArbolJugadores = NULL;
-
-		int Contador = 0;
 
 		while(Variables::OpcionMenu != 4)
 		{
@@ -78,14 +77,7 @@
 						switch(Variables::OpcionJugar)
 						{
 							case 1:
-                                system("cls");
-                                MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
-								MenuJugar();
-								for(Contador = 0; Contador <= 5; Contador++)
-								{
-									cout<< RecorridoPreOrden(ArbolJugadores);
-								}
-								system("pause > 0");
+
 							break;
 
 							case 2:
