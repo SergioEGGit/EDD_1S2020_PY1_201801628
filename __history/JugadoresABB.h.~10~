@@ -48,7 +48,15 @@
 
 	void RecorridoPostOrden(ArbolABB &Arbol, ListaLS &Lista);
 
-	string ReporteABB(ArbolABB &Arbol);
+	ArbolABB MinimoABB(ArbolABB &Arbol);
+
+	void ReemplazarABB(ArbolABB &Arbol, ArbolABB &Nuevo);
+
+	void DestruirNodoABB(ArbolABB &Arbol);
+
+	void EliminarNombreNodoABB(ArbolABB &Arbol);
+
+	void EliminarNombreABB(ArbolABB &Arbol, string Nombre);
 
 //------------------------------------------------------------------------------
 

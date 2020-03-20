@@ -165,19 +165,17 @@
 		}
 		else
 		{
-			int Num = Variables::ContadorArbol;
-			Variables::CadenaArbol = Variables::CadenaArbol + "N" + to_string(Num) + "[label = \"" + Arbol -> Nombre + "\"]\n";
+			string NombreAnterior = Arbol -> Nombre;
 
 			if(Arbol -> LEFT != NULL)
 			{
 				Variables::ContadorArbol++;
-				Variables::CadenaArbol = Variables::CadenaArbol + "N" + to_string(Num) + "->" + "N" + to_string(Variables::ContadorArbol) + "\n";
-				ReporteABB(Arbol -> LEFT);
+				Variables::CadenaArbol = Variables::CadenaArbol + NombreAnterior + "->" + Arbol -> LEFT -> Nombre;
 			}
 			if(Arbol -> RIGHT != NULL)
 			{
 				Variables::ContadorArbol++;
-				Variables::CadenaArbol = Variables::CadenaArbol + "N" + to_string(Num) + "->" + "N" + to_string(Variables::ContadorArbol) + "\n";
+				Variables::CadenaArbol = Variables::CadenaArbol + NombreAnterior + "->" + Arbol -> RIGHT -> Nombre;
 				ReporteABB(Arbol -> RIGHT);
 			}
 		}

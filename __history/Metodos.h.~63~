@@ -38,9 +38,7 @@
 		extern int DimensionTablero;
 		extern string LetraColaFichas;
 		extern int PunteoColaFichas;
-		extern string NombreJugador;
-		extern int ContadorArbol;
-		extern string CadenaArbol;
+        extern string NombreJugador;
 	};
 
 //--------------------------Definición Métodos----------------------------------
@@ -103,5 +101,5 @@
 
 		void ReporteArbolPostOrden(ListaLS &Lista);
 
-		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol);
+		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol, int Contador);
 

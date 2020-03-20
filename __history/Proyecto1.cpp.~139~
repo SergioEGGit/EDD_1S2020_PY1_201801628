@@ -55,7 +55,7 @@
 		ListaLS ListaRecorridos = NULL;
 
 		int Contador = 0;
-		string Cadena = "";
+		string eliminar = "";
 
 		while(Variables::OpcionMenu != 4)
 		{
@@ -153,7 +153,7 @@
 							break;
 
 							case 3:
-								ReporteArbolBinarioBusqueda(ArbolJugadores);
+								ReporteArbolBinarioBusqueda(ArbolJugadores, Contador);
 								system("pause > 0");
 								system("cls");
 								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);

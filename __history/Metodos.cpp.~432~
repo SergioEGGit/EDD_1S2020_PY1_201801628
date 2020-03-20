@@ -44,8 +44,6 @@
 	string Variables::LetraColaFichas = "";
 	int Variables::PunteoColaFichas = 0;
 	string Variables::NombreJugador = "";
-	int Variables::ContadorArbol = 0;
-	string Variables::CadenaArbol = "";
 
 //------------------------------Interfaz----------------------------------------
 
@@ -951,14 +949,13 @@
 			}
 		}
 
-		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol)
+		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol, string Cadena, int Contador)
 		{
 			ofstream ReporteArbolBinarioBusqueda("C:\\GraficasE\\ReporteArbolBinarioBusqueda.dot");
 			ReporteArbolBinarioBusqueda<< "digraph G" <<endl;
 			ReporteArbolBinarioBusqueda<< "{" <<endl;
-			ReporteArbolBinarioBusqueda<< "node [shape = circle, fontname = Arial, color = red];" <<endl;
-			ReporteArbolBinarioBusqueda<< ReporteABB(Arbol) <<endl;
-			ReporteArbolBinarioBusqueda<< "}" <<endl;
+			ReporteArbolBinarioBusqueda<< "node [shape = cicle, fontname = Arial, color = red];" <<endl;
+			ReporteArbolBinarioBusqueda<< ReporteABB(Arbol, Cadena, Contador) <<endl;
 			ReporteArbolBinarioBusqueda.close();
 
 			//Generar Imagen
@@ -966,7 +963,7 @@
 			//Abrir Imagen
 			system("C:\\GraficasE\\ReporteArbolBinarioBusqueda.png &" );
 
-			if(ReporteABB(Arbol) == "")
+			if(ReporteABB(Arbol, Cadena, Contador) == "")
 			{
                 Color(0, 4);
 				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);

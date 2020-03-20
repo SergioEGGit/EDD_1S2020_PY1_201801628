@@ -51,11 +51,9 @@
 		ColaFichas ColaFichasCabeza = NULL;
 		ColaFichas ColaFichasCola = NULL;
 		ArbolABB ArbolJugadores = NULL;
-		ArbolABB NodoPadre = NULL;
 		ListaLS ListaRecorridos = NULL;
 
 		int Contador = 0;
-		string Cadena = "";
 
 		while(Variables::OpcionMenu != 4)
 		{
@@ -82,8 +80,8 @@
 						switch(Variables::OpcionJugar)
 						{
 							case 1:
-								system("cls");
-							    MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
+                                system("cls");
+                                MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 								MenuJugar();
 								system("pause > 0");
 							break;
@@ -92,7 +90,7 @@
 								system("cls");
 								MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 								AgregarJugadores();
-								InsertarNombreABB(ArbolJugadores, NodoPadre, Variables::NombreJugador);
+								InsertarNombreABB(ArbolJugadores, Variables::NombreJugador);
 								system("pause > 0");
 								system("cls");
 								MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
@@ -132,7 +130,7 @@
 					system("cls");
 					MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 					MenuReporte();
-					while(Variables::OpcionReporte != 7)
+					while(Variables::OpcionReporte != 5)
 					{
 						switch(Variables::OpcionReporte)
 						{
@@ -153,37 +151,14 @@
 							break;
 
 							case 3:
-								ReporteArbolBinarioBusqueda(ArbolJugadores);
-								system("pause > 0");
-								system("cls");
-								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
-								MenuReporte();
+								cout<< "Arbol" <<endl;
+								getch();
 							break;
 
 							case 4:
 								ListaRecorridos = NULL;
 								RecorridoPreOrden(ArbolJugadores, ListaRecorridos);
 								ReporteArbolPreOrden(ListaRecorridos);
-								system("pause > 0");
-								system("cls");
-								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
-								MenuReporte();
-							break;
-
-							case 5:
-								ListaRecorridos = NULL;
-								RecorridoInOrden(ArbolJugadores, ListaRecorridos);
-								ReporteArbolInOrden(ListaRecorridos);
-								system("pause > 0");
-								system("cls");
-								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
-								MenuReporte();
-							break;
-
-							case 6:
-								ListaRecorridos = NULL;
-								RecorridoPostOrden(ArbolJugadores, ListaRecorridos);
-								ReporteArbolPostOrden(ListaRecorridos);
 								system("pause > 0");
 								system("cls");
 								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);

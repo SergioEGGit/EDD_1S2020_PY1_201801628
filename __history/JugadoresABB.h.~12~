@@ -48,7 +48,7 @@
 
 	void RecorridoPostOrden(ArbolABB &Arbol, ListaLS &Lista);
 
-	string ReporteABB(ArbolABB &Arbol);
+	string ReporteABB(ArbolABB &Arbol, int Contador);
 
 //------------------------------------------------------------------------------
 

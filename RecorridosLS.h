@@ -1,7 +1,8 @@
+
 //------------------------------------------------------------------------------
 
-	#ifndef JugadoresABBH
-	#define JugadoresABBH
+	#ifndef RecorridoLSH
+	#define RecorridoLSH
 
 //------------------------------Librerias---------------------------------------
 
@@ -16,39 +17,22 @@
 	#include <cctype>
 	#include <locale>
 	#include <cstring>
-    #include <RecorridosLS.h>
 	using namespace std;
 
 //-----------------------------Estructura---------------------------------------
 
-	struct Jugadores
+	struct Recorridos
 	{
 		string Nombre;
-		struct Jugadores *RIGHT;
-		struct Jugadores *LEFT;
-		struct Jugadores *Padre;
+		struct Recorridos *sgte;
 	};
 
-	typedef struct Jugadores *ArbolABB;
+	typedef struct Recorridos *ListaLS;
 
 
 //-----------------------------Métodos------------------------------------------
 
-	ArbolABB CrearNombreABB(ArbolABB &Padre, string Nombre);
-
-	void InsertarNombreABB(ArbolABB &Arbol, ArbolABB &Padre, string Nombre);
-
-	void ImprimirABB(ArbolABB &Arbol, int Contador);
-
-	bool BusquedaABB(ArbolABB &Arbol, string Nombre);
-
-	void RecorridoPreOrden(ArbolABB &Arbol, ListaLS &Lista);
-
-	void RecorridoInOrden(ArbolABB &Arbol, ListaLS &Lista);
-
-	void RecorridoPostOrden(ArbolABB &Arbol, ListaLS &Lista);
-
-	string ReporteABB(ArbolABB &Arbol);
+	void InsertarFinal(ListaLS &Lista, string Nombre);
 
 //------------------------------------------------------------------------------
 

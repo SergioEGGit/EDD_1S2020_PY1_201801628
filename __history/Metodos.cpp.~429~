@@ -44,8 +44,6 @@
 	string Variables::LetraColaFichas = "";
 	int Variables::PunteoColaFichas = 0;
 	string Variables::NombreJugador = "";
-	int Variables::ContadorArbol = 0;
-	string Variables::CadenaArbol = "";
 
 //------------------------------Interfaz----------------------------------------
 
@@ -951,14 +949,13 @@
 			}
 		}
 
-		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol)
+		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol, int Contador)
 		{
 			ofstream ReporteArbolBinarioBusqueda("C:\\GraficasE\\ReporteArbolBinarioBusqueda.dot");
 			ReporteArbolBinarioBusqueda<< "digraph G" <<endl;
 			ReporteArbolBinarioBusqueda<< "{" <<endl;
-			ReporteArbolBinarioBusqueda<< "node [shape = circle, fontname = Arial, color = red];" <<endl;
-			ReporteArbolBinarioBusqueda<< ReporteABB(Arbol) <<endl;
-			ReporteArbolBinarioBusqueda<< "}" <<endl;
+			ReporteArbolBinarioBusqueda<< "node [shape = cicle, fontname = Arial, color = red];" <<endl;
+			ReporteArbolBinarioBusqueda<< ReporteABB(Arbol, Contador) <<endl;
 			ReporteArbolBinarioBusqueda.close();
 
 			//Generar Imagen
@@ -966,18 +963,9 @@
 			//Abrir Imagen
 			system("C:\\GraficasE\\ReporteArbolBinarioBusqueda.png &" );
 
-			if(ReporteABB(Arbol) == "")
-			{
-                Color(0, 4);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
-			    cout<< "No Se Puede Generar El Reporte La Cola Se Encuentra Vacia!" <<endl;
-			}
-			else
-			{
-				Color(0, 10);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
-				cout<< "Reporte Generado Con Exito..." <<endl;
-			}
+			Color(0, 10);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+			cout<< "Reporte Generado Con Exito..." <<endl;
 		}
 
 

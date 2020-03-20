@@ -19,7 +19,6 @@
 	#include <DiccionarioLDC.h>
 	#include <FichasCola.h>
 	#include <RecorridosLS.h>
-    #include <JugadoresABB.h>
 	using namespace std;
 //------------------------------------------------------------------------------
 
@@ -38,9 +37,7 @@
 		extern int DimensionTablero;
 		extern string LetraColaFichas;
 		extern int PunteoColaFichas;
-		extern string NombreJugador;
-		extern int ContadorArbol;
-		extern string CadenaArbol;
+        extern string NombreJugador;
 	};
 
 //--------------------------Definición Métodos----------------------------------
@@ -99,9 +96,5 @@
 
 		void ReporteArbolPreOrden(ListaLS &Lista);
 
-		void ReporteArbolInOrden(ListaLS &Lista);
 
-		void ReporteArbolPostOrden(ListaLS &Lista);
-
-		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol);
 

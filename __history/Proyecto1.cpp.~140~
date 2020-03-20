@@ -153,7 +153,7 @@
 							break;
 
 							case 3:
-								ReporteArbolBinarioBusqueda(ArbolJugadores);
+								ReporteArbolBinarioBusqueda(ArbolJugadores, Cadena, Contador);
 								system("pause > 0");
 								system("cls");
 								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);

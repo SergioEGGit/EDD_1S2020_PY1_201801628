@@ -174,7 +174,7 @@
 				Variables::CadenaArbol = Variables::CadenaArbol + "N" + to_string(Num) + "->" + "N" + to_string(Variables::ContadorArbol) + "\n";
 				ReporteABB(Arbol -> LEFT);
 			}
-			if(Arbol -> RIGHT != NULL)
+			else if(Arbol -> RIGHT != NULL)
 			{
 				Variables::ContadorArbol++;
 				Variables::CadenaArbol = Variables::CadenaArbol + "N" + to_string(Num) + "->" + "N" + to_string(Variables::ContadorArbol) + "\n";

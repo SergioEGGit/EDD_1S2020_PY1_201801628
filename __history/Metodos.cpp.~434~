@@ -951,7 +951,7 @@
 			}
 		}
 
-		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol)
+		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol, string Cadena, int Contador)
 		{
 			ofstream ReporteArbolBinarioBusqueda("C:\\GraficasE\\ReporteArbolBinarioBusqueda.dot");
 			ReporteArbolBinarioBusqueda<< "digraph G" <<endl;
