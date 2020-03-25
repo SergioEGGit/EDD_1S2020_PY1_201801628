@@ -74,7 +74,7 @@
 		}
 	}
 
-	void ImprimirABB(ArbolABB &Arbol, int Contador)
+	void ImprimirABB(ArbolABB &Arbol)
 	{
 		if(Arbol == NULL)
 		{
@@ -83,9 +83,9 @@
 		else
 		{
 			ImprimirABB(Arbol -> RIGHT, Contador + 1);
-            Color(0, 9);
-			gotoxy((Variables::AnchoPantalla/2) - 5, Contador + Contador + 5);
-			cout<< Contador << "." << Arbol -> Nombre <<endl;
+            Color(0, 2);
+			gotoxy((Variables::AnchoPantalla/2) - 5, 4);
+			cout<< Arbol -> Nombre <<endl;
 			ImprimirABB(Arbol -> LEFT, Contador + 1);
 		}
 	}

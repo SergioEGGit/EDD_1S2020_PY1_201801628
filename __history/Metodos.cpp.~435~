@@ -21,7 +21,6 @@
 	#include <FichasCola.h>
 	#include <RecorridosLS.h>
 	#include <JugadoresABB.h>
-	#include <FichasLS.h>
 	#include <sys/stat.h>
 	#include <lib/rapidjson/document.h>
 	#include <lib/rapidjson/prettywriter.h>
@@ -47,8 +46,6 @@
 	string Variables::NombreJugador = "";
 	int Variables::ContadorArbol = 0;
 	string Variables::CadenaArbol = "";
-	string Variables::Jugador1 = "";
-    string Variables::Jugador2 = "";
 
 //------------------------------Interfaz----------------------------------------
 
@@ -271,7 +268,7 @@
 
 
 			//Textos
-			Color(0, 13);
+			Color(0, 4);
 			gotoxy((Variables::AnchoPantalla/2) - 18,Fil1 + 1);
 			cout << "         Scrabble++ SEG";
 			Color(0,12);
@@ -332,7 +329,7 @@
 
 
 			//Textos
-			Color(0, 13);
+			Color(0, 4);
 			gotoxy((Variables::AnchoPantalla/2) - 18,Fil1 + 1);
 			cout << "         Scrabble++ SEG";
 		}
@@ -379,7 +376,7 @@
 
 
 			//Textos
-			Color(0, 13);
+			Color(0,4);
 			gotoxy((Variables::AnchoPantalla/2) - 18,Fil1 + 1);
 			cout << "              Scrabble++ SEG";
 		}
@@ -432,7 +429,7 @@
 
 
 			//Textos
-			Color(0, 13);
+			Color(0,4);
 			gotoxy(Col1 + 75,Fil1 + 1);
 			cout << "Scrabble++ SEG";
 			Color(0,13);
@@ -442,7 +439,7 @@
 
 	//---------------------------Leer Archivos------------------------------
 
-		void LeerArchivo(string RutaArchivo, ListaDLDC &ListaDiccionario, ListaFichas &ListaFichasDT)
+		void LeerArchivo(string RutaArchivo, ListaDLDC &ListaDiccionario)
 		{
 			stringstream Cadena;
 			fstream Archivo(RutaArchivo, fstream::in);
@@ -495,7 +492,6 @@
 							gotoxy((Variables::AnchoPantalla/2) - 17, Contador);
 							Contador++;
 							cout<< i + 1 << ". " << "Coor X: " << DoblesCoorX << ".  " << "Coor Y: " << DoblesCoorY << "." <<endl;
-							InsertarFinalListaFichas(ListaFichasDT, DoblesCoorX, DoblesCoorY, "Dobles");
 						}
 
 						const Value& CasillasTriplesArray = JsonDocument["casillas"]["triples"];
@@ -524,7 +520,6 @@
 							gotoxy((Variables::AnchoPantalla/2) - 17, Contador + 2);
 							Contador++;
 							cout<< i + 1 << ". " << "Coor X: " << TriplesCoorX << "  " << "Coor Y: " << TriplesCoorY <<endl;
-							InsertarFinalListaFichas(ListaFichasDT, TriplesCoorX, TriplesCoorY, "Triples");
 						}
 					}
 
@@ -653,7 +648,7 @@
 			while(Salida);
 		}
 
-	//-----------------------------Juego------------------------------------
+	//--------------------------Agregar Jugadores---------------------------
 
 		void AgregarJugadores()
 		{
@@ -663,23 +658,6 @@
 			gotoxy((Variables::AnchoPantalla/2) + 1, 5);
 			cin>> Variables::NombreJugador;
 		}
-
-		void Jugar(ArbolABB &Arbol, int Contador)
-		{
-            Color(0, 9);
-			gotoxy((Variables::AnchoPantalla/2) - 10, 4);
-			cout<< "Lista De Jugadores: " <<endl;
-			ImprimirABB(Arbol, Contador);
-			Color(0, 12);
-			gotoxy((Variables::AnchoPantalla/2) - 15, Contador + 10);
-			cout<< "Seleccione Jugador 1: " <<endl;
-			gotoxy((Variables::AnchoPantalla/2) + 7, Contador + 10);
-			cin>> Variables::Jugador1;
-			gotoxy((Variables::AnchoPantalla/2) - 15, Contador + 12);
-			cout<< "Seleccione Jugador 2: " <<endl;
-			gotoxy((Variables::AnchoPantalla/2) + 7, Contador + 12);
-			cin>> Variables::Jugador2;
-        }
 
 	//-----------------------------Reportes---------------------------------
 

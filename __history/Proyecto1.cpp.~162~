@@ -58,7 +58,6 @@
 		ListaFichas ListaFichasDT = NULL;
 		MatrizDispersa<string> MatrizDispersaMD;
 
-		int Contador = 1;
 
         while(Variables::OpcionMenu != 4)
 		{
@@ -103,7 +102,10 @@
 								}
 								else
 								{
-                                    Jugar(ArbolJugadores, Contador);
+									Color(0, 9);
+									gotoxy((Variables::AnchoPantalla/2) - 15, 4);
+									cout<< "Lista De Jugadores" <<endl;
+									ImprimirABB(ArbolJugadores, 1);
 									system("pause > 0");
 								}
 								system("cls");

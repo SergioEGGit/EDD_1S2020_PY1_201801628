@@ -90,11 +90,9 @@
 
 		void GenerarFichas(ColaFichas &Cabeza, ColaFichas &Cola);
 
-	//-----------------------------Jugar------------------------------------
+	//--------------------------Agregar Jugadores---------------------------
 
 		void AgregarJugadores();
-
-		void Jugar(ArbolABB &Arbol, int Contador);
 
 	//-----------------------------Reportes---------------------------------
 

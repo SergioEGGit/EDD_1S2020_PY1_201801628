@@ -115,9 +115,21 @@
             <DependentOn>FichasCola.h</DependentOn>
             <BuildOrder>4</BuildOrder>
         </CppCompile>
+        <CppCompile Include="FichasLS.cpp">
+            <DependentOn>FichasLS.h</DependentOn>
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
         <CppCompile Include="JugadoresABB.cpp">
             <DependentOn>JugadoresABB.h</DependentOn>
             <BuildOrder>5</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="MatrizDispersa.cpp">
+            <DependentOn>MatrizDispersa.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="MatrizDispersaNodo.cpp">
+            <DependentOn>MatrizDispersaNodo.h</DependentOn>
+            <BuildOrder>8</BuildOrder>
         </CppCompile>
         <CppCompile Include="Metodos.cpp">
             <DependentOn>Metodos.h</DependentOn>

@@ -42,8 +42,6 @@
 		extern string NombreJugador;
 		extern int ContadorArbol;
 		extern string CadenaArbol;
-		extern string Jugador1;
-        extern string Jugador2;
 	};
 
 //--------------------------Definición Métodos----------------------------------
@@ -90,11 +88,9 @@
 
 		void GenerarFichas(ColaFichas &Cabeza, ColaFichas &Cola);
 
-	//-----------------------------Jugar------------------------------------
+	//--------------------------Agregar Jugadores---------------------------
 
 		void AgregarJugadores();
-
-		void Jugar(ArbolABB &Arbol, int Contador);
 
 	//-----------------------------Reportes---------------------------------
 

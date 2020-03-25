@@ -103,7 +103,16 @@
 								}
 								else
 								{
-                                    Jugar(ArbolJugadores, Contador);
+									Color(0, 9);
+									gotoxy((Variables::AnchoPantalla/2) - 10, 4);
+									cout<< "Lista De Jugadores: " <<endl;
+									ImprimirABB(ArbolJugadores, Contador);
+									gotoxy((Variables::AnchoPantalla/2) - 10, Contador + Contador + 7);
+									cout<< "Seleccione Jugador 1: " <<endl;
+									cin>> Variables::Jugador1;
+                                    gotoxy((Variables::AnchoPantalla/2) - 10, Contador + Contador + 7);
+									cout<< "Seleccione Jugador 2: " <<endl;
+									cin>> Variables::Jugador2;
 									system("pause > 0");
 								}
 								system("cls");

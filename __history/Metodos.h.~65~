@@ -19,8 +19,7 @@
 	#include <DiccionarioLDC.h>
 	#include <FichasCola.h>
 	#include <RecorridosLS.h>
-	#include <JugadoresABB.h>
-	#include <FichasLS.h>
+    #include <JugadoresABB.h>
 	using namespace std;
 //------------------------------------------------------------------------------
 
@@ -42,8 +41,6 @@
 		extern string NombreJugador;
 		extern int ContadorArbol;
 		extern string CadenaArbol;
-		extern string Jugador1;
-        extern string Jugador2;
 	};
 
 //--------------------------Definición Métodos----------------------------------
@@ -84,17 +81,15 @@
 
 	//---------------------------Leer Archivos------------------------------
 
-		void LeerArchivo(string RutaArchivo, ListaDLDC &ListaDiccionario, ListaFichas &ListaFichasDT);
+		void LeerArchivo(string RutaArchivo, ListaDLDC &ListaDiccionario);
 
 	//-------------------------Generar Fichas-------------------------------
 
 		void GenerarFichas(ColaFichas &Cabeza, ColaFichas &Cola);
 
-	//-----------------------------Jugar------------------------------------
+	//--------------------------Agregar Jugadores---------------------------
 
 		void AgregarJugadores();
-
-		void Jugar(ArbolABB &Arbol, int Contador);
 
 	//-----------------------------Reportes---------------------------------
 

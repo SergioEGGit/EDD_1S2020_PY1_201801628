@@ -47,8 +47,6 @@
 	string Variables::NombreJugador = "";
 	int Variables::ContadorArbol = 0;
 	string Variables::CadenaArbol = "";
-	string Variables::Jugador1 = "";
-    string Variables::Jugador2 = "";
 
 //------------------------------Interfaz----------------------------------------
 
@@ -653,7 +651,7 @@
 			while(Salida);
 		}
 
-	//-----------------------------Juego------------------------------------
+	//--------------------------Agregar Jugadores---------------------------
 
 		void AgregarJugadores()
 		{
@@ -663,23 +661,6 @@
 			gotoxy((Variables::AnchoPantalla/2) + 1, 5);
 			cin>> Variables::NombreJugador;
 		}
-
-		void Jugar(ArbolABB &Arbol, int Contador)
-		{
-            Color(0, 9);
-			gotoxy((Variables::AnchoPantalla/2) - 10, 4);
-			cout<< "Lista De Jugadores: " <<endl;
-			ImprimirABB(Arbol, Contador);
-			Color(0, 12);
-			gotoxy((Variables::AnchoPantalla/2) - 15, Contador + 10);
-			cout<< "Seleccione Jugador 1: " <<endl;
-			gotoxy((Variables::AnchoPantalla/2) + 7, Contador + 10);
-			cin>> Variables::Jugador1;
-			gotoxy((Variables::AnchoPantalla/2) - 15, Contador + 12);
-			cout<< "Seleccione Jugador 2: " <<endl;
-			gotoxy((Variables::AnchoPantalla/2) + 7, Contador + 12);
-			cin>> Variables::Jugador2;
-        }
 
 	//-----------------------------Reportes---------------------------------
 
