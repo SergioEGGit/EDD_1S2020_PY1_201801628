@@ -47,6 +47,8 @@
 
 		   void InsertarMatrizDispersa(int x, int y, T object);
 
+		   void EliminarMatrizDispersa(int x, int y);
+
 		   void ImprimirFilaHeaders();
 
 		   void ImprimirColumnaHeaders();
@@ -56,6 +58,8 @@
 		   void ImprimirColumnas();
 
 		   void ReporteMatrizDispersa();
+
+		   bool EstaVacia();
 	 };
 
 
@@ -259,6 +263,49 @@
 
 	template<class T>
 
+	void MatrizDispersa<T>::EliminarMatrizDispersa(int x, int y)
+	{
+		MatrizDispersaNodo<T> *MatrizY = Raiz;
+		if(MatrizY != NULL)
+		{
+			while(MatrizY != NULL)
+			{
+				MatrizDispersaNodo<T> *MatrizX = MatrizY;
+
+				while (MatrizX != NULL)
+				{
+					if(MatrizX -> getX() == x && MatrizX -> getY() == y)
+					{
+						MatrizX -> getPreviousNode() -> setNextNode(MatrizX -> getNextNode());
+
+						if(MatrizX -> getNextNode() != NULL)
+						{
+							MatrizX -> getNextNode() -> setPreviousNode(MatrizX -> getPreviousNode());
+						}
+
+						MatrizX -> setPreviousNode(NULL);
+						MatrizX -> setNextNode(NULL);
+						MatrizX -> getUpNode() -> setDownNode(MatrizX -> getDownNode());
+
+						if(MatrizX -> getDownNode() != NULL)
+						{
+							MatrizX -> getDownNode() -> setUpNode(MatrizX -> getUpNode());
+						}
+
+						MatrizX -> setUpNode(NULL);
+						MatrizX -> setDownNode(NULL);
+						MatrizX = NULL;
+						break;
+					}
+					MatrizX = MatrizX -> getNextNode();
+				}
+				MatrizY = MatrizY -> getDownNode();
+			}
+		}
+	}
+
+	template<class T>
+
 	void MatrizDispersa<T>::ImprimirFilaHeaders()
 	{
 		MatrizDispersaNodo<T> *Aux = Raiz;
@@ -280,6 +327,22 @@
 			Aux = Aux -> getNextNode();
 		}
 		cout << endl;
+	}
+
+	template <class T>
+
+	bool MatrizDispersa<T>::EstaVacia()
+	{
+		MatrizDispersaNodo<T> *Temp = Raiz;
+
+		if(Temp -> getNextNode()  == nullptr)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+        }
 	}
 
 	template<class T>

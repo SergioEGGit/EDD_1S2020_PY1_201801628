@@ -21,6 +21,8 @@
 	#include <RecorridosLS.h>
 	#include <JugadoresABB.h>
 	#include <FichasLS.h>
+	#include <JugadoresFichasLD.h>
+    #include <MatrizDispersa.h>
 	using namespace std;
 //------------------------------------------------------------------------------
 
@@ -43,22 +45,23 @@
 		extern int ContadorArbol;
 		extern string CadenaArbol;
 		extern string Jugador1;
-        extern string Jugador2;
+		extern string Jugador2;
+		extern bool TerminarJuego;
+		extern int ContadorReccorridos;
+		extern int OpcionOpcionesJuego;
 	};
 
 //--------------------------Definición Métodos----------------------------------
 
-//-----------------------------Colores----------------------------------
+//-----------------------------------Varios----------------------------------
 
 		void Color(int Background, int Text);
 
-	//---------------------------Fullscreen---------------------------------
-
 		void Fullscreen();
 
-	//---------------------Obtener Resolución Pantalla----------------------
-
 		void Resolucion();
+
+		void SepararCadenaEliminar(string CadenaEliminar);
 
 	//------------------------------Menú------------------------------------
 
@@ -67,6 +70,8 @@
 		void MenuJugar();
 
 		void MenuReporte();
+
+        void MenuOpcionesJuego();
 
 	//-----------------------------Marcos-----------------------------------
 
@@ -84,7 +89,7 @@
 
 	//---------------------------Leer Archivos------------------------------
 
-		void LeerArchivo(string RutaArchivo, ListaDLDC &ListaDiccionario, ListaFichas &ListaFichasDT);
+		void LeerArchivo(MatrizDispersa<string> &MatrizDispersaMD, string RutaArchivo, ListaDLDC &ListaDiccionario, ListaFichas &ListaFichasDT);
 
 	//-------------------------Generar Fichas-------------------------------
 
@@ -94,7 +99,7 @@
 
 		void AgregarJugadores();
 
-		void Jugar(ArbolABB &Arbol, int Contador);
+		void Jugar(ArbolABB &Arbol, ListaLS &Lista, ListaLDJ &CabezaJugador1, ListaLDJ &CabezaJugador2, ListaLDJ &ColaJugador1, ListaLDJ &ColaJugador2, ColaFichas &FichasColaCabeza, ColaFichas &FichasColaCola, MatrizDispersa<string> &MatrizDispersaMD, int Contador);
 
 	//-----------------------------Reportes---------------------------------
 
@@ -109,4 +114,13 @@
 		void ReporteArbolPostOrden(ListaLS &Lista);
 
 		void ReporteArbolBinarioBusqueda(ArbolABB &Arbol);
+
+		void ReporteJugadoresFichas1Reportes(ListaLDJ &Lista);
+
+		void ReporteJugadoresFichas1Juego(ListaLDJ &Lista);
+
+		void ReporteJugadoresFichas2Reportes(ListaLDJ &Lista);
+
+		void ReporteJugadoresFichas2Juego(ListaLDJ &Lista);
+
 

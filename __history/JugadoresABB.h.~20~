@@ -1,0 +1,57 @@
+//------------------------------------------------------------------------------
+
+	#ifndef JugadoresABBH
+	#define JugadoresABBH
+
+//------------------------------Librerias---------------------------------------
+
+	#include <iostream>
+	#include <stdio.h>
+	#include <conio.h>
+	#include <string>
+	#include <windows.h>
+	#include <fstream>
+	#include <algorithm>
+	#include <functional>
+	#include <cctype>
+	#include <locale>
+	#include <cstring>
+    #include <RecorridosLS.h>
+	using namespace std;
+
+//-----------------------------Estructura---------------------------------------
+
+	struct Jugadores
+	{
+		string Nombre;
+		struct Jugadores *RIGHT;
+		struct Jugadores *LEFT;
+		struct Jugadores *Padre;
+	};
+
+	typedef struct Jugadores *ArbolABB;
+
+
+//-----------------------------Métodos------------------------------------------
+
+	ArbolABB CrearNombreABB(ArbolABB &Padre, string Nombre);
+
+	void InsertarNombreABB(ArbolABB &Arbol, ArbolABB &Padre, string Nombre);
+
+	void ImprimirABB(ArbolABB &Arbol, int Contador);
+
+	bool BusquedaABB(ArbolABB &Arbol, string Nombre);
+
+	void RecorridoPreOrden(ArbolABB &Arbol, ListaLS &Lista);
+
+	void RecorridoInOrden(ArbolABB &Arbol, ListaLS &Lista);
+
+	void RecorridoPostOrden(ArbolABB &Arbol, ListaLS &Lista);
+
+	string ReporteABB(ArbolABB &Arbol);
+
+	void ContarNodos(ArbolABB &Arbol);
+
+//------------------------------------------------------------------------------
+
+	#endif

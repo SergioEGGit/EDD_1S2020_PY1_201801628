@@ -55,6 +55,10 @@
 		ArbolABB ArbolJugadores = NULL;
 		ArbolABB NodoPadre = NULL;
 		ListaLS ListaRecorridos = NULL;
+		ListaLDJ CabezaJugador1 = NULL;
+		ListaLDJ ColaJugador1 = NULL;
+		ListaLDJ CabezaJugador2 = NULL;
+		ListaLDJ ColaJugador2 = NULL;
 		ListaFichas ListaFichasDT = NULL;
 		MatrizDispersa<string> MatrizDispersaMD;
 
@@ -69,7 +73,7 @@
 					MarcoArchivo(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 					if(Variables::RutaArchivo != "Salir")
 					{
-						LeerArchivo(Variables::RutaArchivo, ListaDobleCircularDiccionario, ListaFichasDT);
+						LeerArchivo(MatrizDispersaMD, Variables::RutaArchivo, ListaDobleCircularDiccionario, ListaFichasDT);
 					}
 					system("cls");
 					MarcoMenu(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
@@ -80,13 +84,15 @@
 					system("cls");
 					MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 					MenuJugar();
-					while(Variables::OpcionJugar != 5)
+					while(Variables::OpcionJugar != 4)
 					{
 						switch(Variables::OpcionJugar)
 						{
 							case 1:
 								system("cls");
 								MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
+								ListaRecorridos = NULL;
+								RecorridoPreOrden(ArbolJugadores, ListaRecorridos);
 								if(ColaFichasCabeza == NULL)
 								{
 									Color(0, 4);
@@ -94,17 +100,29 @@
 									cout<< "Aun No Se Han Agregado Fichas Para Comenzar La Partida"<<endl;
 									system("pause > 0");
 								}
-								else if(ArbolJugadores == NULL)
+								else if(NumeroNodos(ListaRecorridos) < 2)
 								{
 									Color(0, 4);
-									gotoxy((Variables::AnchoPantalla/2) - 26, 4);
-									cout<< "Aun No Se Han Agregado Jugadores Para Comenzar La Partida" <<endl;
-                                    system("pause > 0");
+									gotoxy((Variables::AnchoPantalla/2) - 35, 4);
+									cout<< "Aun No Se Han Agregado Jugadores Suficientes Para Comenzar La Partida" <<endl;
+									system("pause > 0");
+								}
+								else if(ListaDobleCircularDiccionario == NULL)
+								{
+                                    Color(0, 4);
+									gotoxy((Variables::AnchoPantalla/2) - 38, 4);
+									cout<< "Aun No Se Han Agregado Palabras Al Diccionario Para Comenzar La Partida" <<endl;
+									system("pause > 0");
 								}
 								else
 								{
-                                    Jugar(ArbolJugadores, Contador);
-									system("pause > 0");
+									CabezaJugador1 = NULL;
+									ColaJugador1 = NULL;
+									CabezaJugador2 = NULL;
+									ColaJugador2 = NULL;
+									Jugar(ArbolJugadores, ListaRecorridos, CabezaJugador1, CabezaJugador2, ColaJugador1, ColaJugador2, ColaFichasCabeza, ColaFichasCola, MatrizDispersaMD, Contador);
+									ColaFichasCabeza = NULL;
+									ColaFichasCola = NULL;
 								}
 								system("cls");
 								MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
@@ -133,12 +151,6 @@
 								MenuJugar();
 							break;
 
-							case 4:
-								system("cls");
-								MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
-								MenuJugar();
-							break;
-
 							default:
 								system("cls");
 								MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
@@ -155,7 +167,7 @@
 					system("cls");
 					MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 					MenuReporte();
-					while(Variables::OpcionReporte != 7)
+					while(Variables::OpcionReporte != 11)
 					{
 						switch(Variables::OpcionReporte)
 						{
@@ -207,6 +219,51 @@
 								ListaRecorridos = NULL;
 								RecorridoPostOrden(ArbolJugadores, ListaRecorridos);
 								ReporteArbolPostOrden(ListaRecorridos);
+								system("pause > 0");
+								system("cls");
+								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
+								MenuReporte();
+							break;
+
+							case 7:
+								cout<< "Reporte Puntajes";
+								system("pause > 0");
+								system("cls");
+								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
+								MenuReporte();
+							break;
+
+							case 8:
+							     cout<< "Reporte ScoreBoard";
+								system("pause > 0");
+								system("cls");
+								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
+								MenuReporte();
+							break;
+
+							case 9:
+								if(MatrizDispersaMD.EstaVacia() == true)
+								{
+                                    Color(0, 4);
+									gotoxy ((Variables::AnchoPantalla - 2)/2 - 2 , 28);
+									cout<< "No Se Puede Generar El Reporte La Matriz Se Encuentra Vacia!" <<endl;
+								}
+								else if(MatrizDispersaMD.EstaVacia() == false)
+								{
+									MatrizDispersaMD.ReporteMatrizDispersa();
+									Color(0, 10);
+									gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
+									cout<< "Reporte Generado Con Exito..." <<endl;
+								}
+								system("pause > 0");
+								system("cls");
+								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
+								MenuReporte();
+							break;
+
+							case 10:
+								ReporteJugadoresFichas1Reportes(CabezaJugador1);
+								ReporteJugadoresFichas2Reportes(CabezaJugador2);
 								system("pause > 0");
 								system("cls");
 								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);

@@ -84,7 +84,7 @@
 		{
 			ImprimirABB(Arbol -> RIGHT, Contador + 1);
             Color(0, 9);
-			gotoxy((Variables::AnchoPantalla/2) - 5, Contador + Contador + 5);
+			gotoxy((Variables::AnchoPantalla/2) - 5, Contador + 5);
 			cout<< Contador << "." << Arbol -> Nombre <<endl;
 			ImprimirABB(Arbol -> LEFT, Contador + 1);
 		}
@@ -180,4 +180,11 @@
 			}
 		}
 		return Variables::CadenaArbol;
+
+
 	}
+
+
+
+
+

@@ -12,6 +12,7 @@
 	#include <fstream>
 	#include <windows.h>
 	#include "RecorridosLS.h"
+	#include "Metodos.h"
 	using namespace std;
 
 //------------------------------------------------------------------------------
@@ -40,4 +41,33 @@
 			}
 			auxT -> sgte = auxQ;
 		}
+	}
+
+	void ImprimirRecorridosLS(ListaLS &Lista, int Contador)
+	{
+		ListaLS aux = Lista;
+
+		while(aux != NULL)
+		{
+            Color(0, 9);
+			gotoxy((Variables::AnchoPantalla/2) - 7, Contador + 5);
+			cout<< Contador <<". " << aux -> Nombre <<endl;
+			Contador++;
+            Variables::ContadorReccorridos = Contador + 5;
+			aux = aux -> sgte;
+		}
+	}
+
+	int NumeroNodos(ListaLS &Lista)
+	{
+		ListaLS aux = Lista;
+		int Contador = 0;
+
+		while(aux != NULL)
+		{
+			Contador++;
+			aux = aux -> sgte;
+		}
+
+		return Contador;
 	}

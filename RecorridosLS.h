@@ -33,6 +33,10 @@
 //-----------------------------Métodos------------------------------------------
 
 	void InsertarFinal(ListaLS &Lista, string Nombre);
+	
+	void ImprimirRecorridosLS(ListaLS &Lista, int Contador);
+	
+	int NumeroNodos(ListaLS &Lista);
 
 //------------------------------------------------------------------------------
 

@@ -1,0 +1,60 @@
+//------------------------------------------------------------------------------
+
+	#pragma hdrstop
+
+//---------------------------------Librerias------------------------------------
+
+	#include <iostream>
+	#include <stdio.h>
+	#include <conio.h>
+	#include <string>
+	#include <cstdlib>
+	#include <fstream>
+	#include <windows.h>
+	#include "RecorridosLS.h"
+	#include "Metodos.h"
+	using namespace std;
+
+//------------------------------------------------------------------------------
+
+	#pragma package(smart_init)
+
+//---------------------------------Métodos--------------------------------------
+
+	void InsertarFinal(ListaLS &Lista, string Nombre)
+	{
+		ListaLS auxT, auxQ = new(struct Recorridos);
+		auxQ -> Nombre = Nombre;
+		auxQ -> sgte = NULL;
+
+		if(Lista == NULL)
+		{
+			Lista = auxQ;
+		}
+		else
+		{
+			auxT = Lista;
+
+			while(auxT -> sgte != NULL)
+			{
+				auxT = auxT -> sgte;
+			}
+			auxT -> sgte = auxQ;
+		}
+	}
+
+	void ImprimirRecorridosLS(ListaLS &Lista, int Contador)
+	{
+		ListaLS aux = Lista;
+		int Espaciado = 1;
+
+		while(aux != NULL)
+		{
+            Color(0, 9);
+			gotoxy((Variables::AnchoPantalla/2) - 7, Contador + 6 + Espaciado);
+			cout<< Contador <<". " << aux -> Nombre <<endl;
+			Contador++;
+            Espaciado++;
+			aux = aux -> sgte;
+        }
+	}

@@ -22,6 +22,7 @@
 	#include <RecorridosLS.h>
 	#include <JugadoresABB.h>
 	#include <FichasLS.h>
+	#include <MatrizDispersa.h>
 	#include <sys/stat.h>
 	#include <lib/rapidjson/document.h>
 	#include <lib/rapidjson/prettywriter.h>
@@ -48,12 +49,21 @@
 	int Variables::ContadorArbol = 0;
 	string Variables::CadenaArbol = "";
 	string Variables::Jugador1 = "";
-    string Variables::Jugador2 = "";
+	string Variables::Jugador2 = "";
+	bool Variables::TerminarJuego = true;
+	int Variables::ContadorReccorridos = 1;
+	int Variables::OpcionOpcionesJuego = 0;
+	string CadenaEliminarArray[8];
+	string FichasAgregadasArray[50][2];
+	int PosicionesArray[50][2];
+	int ContadorArray = 0;
+	int ContadorFichasArray = 0;
+	int ContadorPosicionArray = 0;
 
 //------------------------------Interfaz----------------------------------------
 
 
-    //-----------------------------Colores----------------------------------
+	//------------------------------Varios----------------------------------
 
 		void Color(int Background, int Text)
 		{
@@ -65,8 +75,6 @@
 			int    New_Color= Text + (Background * 16);
 			SetConsoleTextAttribute(Console, New_Color); // Guardamos los cambios en la Consola.
 		}
-
-	//---------------------------Fullscreen---------------------------------
 
 		void Fullscreen()
 		{
@@ -89,12 +97,30 @@
 			return;
 		}
 
-	//---------------------Obtener Resolución Pantalla----------------------
-
 		void Resolucion()
 		{
 			Variables::AnchoPantalla = (GetSystemMetrics(SM_CXSCREEN) / 8) - 2;
 			Variables::AltoPantalla = (GetSystemMetrics(SM_CYSCREEN) / 19) + 1;
+		}
+
+		void SepararCadenaEliminar(string CadenaEliminar)
+		{
+			char Cadena[10];
+			char Delimitador[] = ",";
+
+			strcpy(Cadena , CadenaEliminar.c_str());
+
+			char *Tokens = strtok(Cadena, Delimitador);
+
+			if(Tokens != NULL)
+			{
+				while(Tokens != NULL)
+				{
+					CadenaEliminarArray[ContadorArray] = Tokens;
+					Tokens = strtok(NULL, Delimitador);
+					ContadorArray++;
+				}
+			}
 		}
 
 	//------------------------------Menú------------------------------------
@@ -176,12 +202,41 @@
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 20, 16);
 			cout<< "6. Reporte Recorrido PostOrden Arbol Binario De Busqueda" <<endl;
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 20, 18);
-			cout<< "7. Salir" <<endl;
+			cout<< "7. Reporte Historial De Puntaje Por Jugador Lista Simple Ordenada" <<endl;
 			gotoxy ((Variables::AnchoPantalla - 2)/2 - 20, 20);
+			cout<< "8. Reporte Scorboard Lista Simple Ordenada" <<endl;
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 20, 22);
+			cout<< "9. Reporte Tablero Matriz Dispersa" <<endl;
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 20, 24);
+			cout<< "10. Reporte Fichas Por Jugador Lista Doblemente Enlazada" <<endl;
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 20, 26);
+			cout<< "11. Salir" <<endl;
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 20, 28);
 			cout<< "Elija Una Opcion: " <<endl;
-			gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+			gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 
 			cin>> Variables::OpcionReporte;
+		}
+
+		void MenuOpcionesJuego()
+		{
+            Color(0, 11);
+			gotoxy((Variables::AnchoPantalla/2) - 15, 8);
+			cout<< "         Menu Juego" <<endl;
+			gotoxy((Variables::AnchoPantalla/2) - 15, 10);
+			cout<< "     1. Ingresar Ficha" << endl;
+			gotoxy((Variables::AnchoPantalla/2) - 15, 12);
+			cout<< "     2. Validar Turno" << endl;
+			gotoxy((Variables::AnchoPantalla/2) - 15, 14);
+			cout<< "     3. Cambiar Fichas" << endl;
+			gotoxy((Variables::AnchoPantalla/2) - 15, 16);
+			cout<< "     4. Terminar Turno" << endl;
+			gotoxy((Variables::AnchoPantalla/2) - 15, 18);
+			cout<< "     5. Terminar Partida" << endl;
+			gotoxy((Variables::AnchoPantalla/2) - 15, 20);
+			cout<< "    Ingrese Una Opcion:    " << endl;
+			gotoxy((Variables::AnchoPantalla/2) + 9, 20);
+			cin>> Variables::OpcionOpcionesJuego;
 		}
 
 	//-----------------------------Marcos-----------------------------------
@@ -442,7 +497,7 @@
 
 	//---------------------------Leer Archivos------------------------------
 
-		void LeerArchivo(string RutaArchivo, ListaDLDC &ListaDiccionario, ListaFichas &ListaFichasDT)
+		void LeerArchivo(MatrizDispersa<string> &MatrizDispersaMD, string RutaArchivo, ListaDLDC &ListaDiccionario, ListaFichas &ListaFichasDT)
 		{
 			stringstream Cadena;
 			fstream Archivo(RutaArchivo, fstream::in);
@@ -465,6 +520,8 @@
 						cout<< "Contenido Del Archivo:" <<endl;
 						gotoxy((Variables::AnchoPantalla/2) - 20, 10);
 						cout<< "Dimesion: " << Variables::DimensionTablero << "." << endl;
+						int Centro = Variables::DimensionTablero / 2;
+						MatrizDispersaMD.InsertarMatrizDispersa(Centro, Centro, "Centro");
 					}
 
 					if(JsonDocument.HasMember("casillas"))
@@ -496,6 +553,7 @@
 							Contador++;
 							cout<< i + 1 << ". " << "Coor X: " << DoblesCoorX << ".  " << "Coor Y: " << DoblesCoorY << "." <<endl;
 							InsertarFinalListaFichas(ListaFichasDT, DoblesCoorX, DoblesCoorY, "Dobles");
+							MatrizDispersaMD.InsertarMatrizDispersa(DoblesCoorX, DoblesCoorY, "Doble");
 						}
 
 						const Value& CasillasTriplesArray = JsonDocument["casillas"]["triples"];
@@ -525,6 +583,7 @@
 							Contador++;
 							cout<< i + 1 << ". " << "Coor X: " << TriplesCoorX << "  " << "Coor Y: " << TriplesCoorY <<endl;
 							InsertarFinalListaFichas(ListaFichasDT, TriplesCoorX, TriplesCoorY, "Triples");
+							MatrizDispersaMD.InsertarMatrizDispersa(TriplesCoorX, TriplesCoorY, "Triple");
 						}
 					}
 
@@ -640,7 +699,7 @@
 				if(Cantidad != 0)
 				{
 					Contador = Contador - 1;
-                    InsertarEnMedioColaFichas(Cabeza, Posicion, Fichas[Contador][0], stoi(Fichas[Contador][1]));
+					InsertarEnMedioColaFichas(Cabeza, Posicion, Fichas[Contador][0], stoi(Fichas[Contador][1]));
 					Cantidad = Cantidad - 1;
 					Fichas[Contador][2] = to_string(Cantidad);
 				}
@@ -664,22 +723,322 @@
 			cin>> Variables::NombreJugador;
 		}
 
-		void Jugar(ArbolABB &Arbol, int Contador)
+		void Jugar(ArbolABB &Arbol, ListaLS &Lista, ListaLDJ &CabezaJugador1, ListaLDJ &CabezaJugador2, ListaLDJ &ColaJugador1, ListaLDJ &ColaJugador2,  ColaFichas &FichasColaCabeza, ColaFichas &FichasColaCola, MatrizDispersa<string> &MatrizDispersaMD, int Contador)
 		{
-            Color(0, 9);
+			Color(0, 9);
 			gotoxy((Variables::AnchoPantalla/2) - 10, 4);
 			cout<< "Lista De Jugadores: " <<endl;
-			ImprimirABB(Arbol, Contador);
-			Color(0, 12);
-			gotoxy((Variables::AnchoPantalla/2) - 15, Contador + 10);
-			cout<< "Seleccione Jugador 1: " <<endl;
-			gotoxy((Variables::AnchoPantalla/2) + 7, Contador + 10);
-			cin>> Variables::Jugador1;
-			gotoxy((Variables::AnchoPantalla/2) - 15, Contador + 12);
-			cout<< "Seleccione Jugador 2: " <<endl;
-			gotoxy((Variables::AnchoPantalla/2) + 7, Contador + 12);
-			cin>> Variables::Jugador2;
-        }
+			Lista = NULL;
+			RecorridoPreOrden(Arbol, Lista);
+			ImprimirRecorridosLS(Lista, Contador);
+
+			int BanderaNota = 0;
+			int PosicionInsertar = rand() % CantidadColaFichas(FichasColaCabeza);
+			string TerminarPartida = "";
+			string CadenaEliminar = "";
+			int LetraIngresar = 0;
+			int PosicionX = Variables::DimensionTablero;
+			int PosicionY = Variables::DimensionTablero;
+			bool SalidaJugador1 = true;
+			bool SalidaJugador2 = true;
+			bool VerificarPosicionX = true;
+			bool VerificarPosicionY = true;
+			bool ValidarTurno = true;
+			Variables::TerminarJuego = true;
+
+			while(SalidaJugador1)
+			{
+                Color(0, 12);
+				gotoxy((Variables::AnchoPantalla/2) - 15, Variables::ContadorReccorridos + 1);
+				cout<< "Seleccione Jugador 1: " <<endl;
+				gotoxy((Variables::AnchoPantalla/2) + 7, Variables::ContadorReccorridos + 1);
+				cout<<"                                                " <<endl;
+				gotoxy((Variables::AnchoPantalla/2) + 7, Variables::ContadorReccorridos + 1);
+				cin>> Variables::Jugador1;
+				if(BusquedaABB(Arbol, Variables::Jugador1) == true)
+				{
+					SalidaJugador1 = false;
+				}
+				else
+				{
+					Color(0, 4);
+					gotoxy((Variables::AnchoPantalla/2) + 7, Variables::ContadorReccorridos + 1);
+					cout<< "El Usuario Indicado No Existe En El Sistema" <<endl;
+					system("pause > 0");
+					SalidaJugador1 = true;
+                }
+			}
+
+			while(SalidaJugador2)
+			{
+                Color(0, 12);
+				gotoxy((Variables::AnchoPantalla/2) - 15, Variables::ContadorReccorridos + 3);
+				cout<< "Seleccione Jugador 2: " <<endl;
+				gotoxy((Variables::AnchoPantalla/2) + 7, Variables::ContadorReccorridos + 3);
+				cout<<"                                                " <<endl;
+				gotoxy((Variables::AnchoPantalla/2) + 7, Variables::ContadorReccorridos + 3);
+				cin>> Variables::Jugador2;
+				if(BusquedaABB(Arbol, Variables::Jugador2) == true)
+				{
+					SalidaJugador2 = false;
+				}
+				else
+				{
+					Color(0, 4);
+					gotoxy((Variables::AnchoPantalla/2) + 7, Variables::ContadorReccorridos + 3);
+					cout<< "El Usuario Indicado No Existe En El Sistema" <<endl;
+					system("pause > 0");
+					SalidaJugador2 = true;
+				}
+			}
+
+			int JugadorComienzo = rand() % 2 + 1;
+
+
+
+			for(int i = 0; i < 7; i++)
+			{
+				EliminarColaFichas(FichasColaCabeza, FichasColaCola);
+				InsertarFinalLDJ(CabezaJugador1, ColaJugador1, Variables::LetraColaFichas, Variables::PunteoColaFichas);
+
+				EliminarColaFichas(FichasColaCabeza, FichasColaCola);
+				InsertarFinalLDJ(CabezaJugador2, ColaJugador2, Variables::LetraColaFichas, Variables::PunteoColaFichas);
+			}
+
+			while(Variables::TerminarJuego)
+			{
+
+				ContadorArray = 0;
+				ContadorFichasArray = 0;
+				ContadorPosicionArray = 0;
+
+				system("cls");
+				MarcoJugar(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
+
+				Color(0, 11);
+				gotoxy((Variables::AnchoPantalla/2) - 15, 4);
+				cout<< "Bienvenido Al Juego Scrable++:" <<endl;
+
+				if(BanderaNota == 0)
+				{
+					Color(0, 14);
+					gotoxy((Variables::AnchoPantalla/2) + 20, 4);
+					cout<< "Nota: La Primera Palabra Debe Pasar Por El Centro" <<endl;
+				}
+
+				BanderaNota++;
+
+				Color(0, 11);
+				gotoxy((Variables::AnchoPantalla/2) - 13, 6);
+				cout<< "Turno Del Jugador " << JugadorComienzo << ": ";
+
+				if(JugadorComienzo == 1)
+				{
+					gotoxy((Variables::AnchoPantalla/2) + 8, 6);
+					cout<< Variables::Jugador1 <<endl;
+				}
+				else if(JugadorComienzo == 2)
+				{
+					gotoxy((Variables::AnchoPantalla/2) + 8, 6);
+					cout<< Variables::Jugador2 <<endl;
+				}
+
+				switch(JugadorComienzo)
+				{
+					case 1:
+						MatrizDispersaMD.ReporteMatrizDispersa();
+						ReporteJugadoresFichas1Juego(CabezaJugador1);
+						MenuOpcionesJuego();
+						while(Variables::OpcionOpcionesJuego != 5)
+						{
+							switch(Variables::OpcionOpcionesJuego)
+							{
+								case 1:
+								   Color(0, 14);
+								   gotoxy((Variables::AnchoPantalla/2) - 40, 22);
+								   cout<< "Escriba El Indice De La Letra Que Desea Agregar Al Tablero: " <<endl;
+								   gotoxy((Variables::AnchoPantalla/2) + 20, 22);
+								   cin>> PosicionInsertar;
+								   EliminarLDJ(CabezaJugador1, ColaJugador1, PosicionInsertar);
+								   FichasAgregadasArray[ContadorFichasArray][0] = Variables::LetraColaFichas;
+								   FichasAgregadasArray[ContadorFichasArray][1] = to_string(Variables::PunteoColaFichas);
+								   ContadorFichasArray++;
+
+								   VerificarPosicionX = true;
+
+								   while(VerificarPosicionX)
+								   {
+									   Color(0, 14);
+									   gotoxy((Variables::AnchoPantalla/2) - 10, 24);
+									   cout<< "Posicion X:                                                     " <<endl;
+									   gotoxy((Variables::AnchoPantalla/2) + 2, 24);
+									   cin>> PosicionX;
+
+									   if(PosicionX > Variables::DimensionTablero)
+									   {
+										   gotoxy((Variables::AnchoPantalla/2) + 2, 24);
+										   Color(0, 4);
+										   cout<< "La Posicion Indicada Excede Los Limites Del Tablero" <<endl;
+                                           system("pause > 0");
+										   VerificarPosicionX = true;
+									   }
+									   else if(PosicionX <= Variables::DimensionTablero)
+									   {
+										   VerificarPosicionX = false;
+									   }
+								   }
+
+								   VerificarPosicionY = true;
+
+                                   while(VerificarPosicionY)
+								   {
+                                       Color(0, 14);
+									   gotoxy((Variables::AnchoPantalla/2) - 10, 26);
+									   cout<< "Posicion Y:                                                         " <<endl;
+									   gotoxy((Variables::AnchoPantalla/2) + 2, 26);
+									   cin>> PosicionY;
+
+									   if(PosicionY > Variables::DimensionTablero)
+									   {
+										   gotoxy((Variables::AnchoPantalla/2) + 2, 26);
+										   Color(0, 4);
+										   cout<< "La Posicion Indicada Excede Los Limites Del Tablero" <<endl;
+										   system("pause > 0");
+										   VerificarPosicionY = true;
+									   }
+									   else if(PosicionY <= Variables::DimensionTablero)
+									   {
+										   VerificarPosicionY = false;
+									   }
+								   }
+
+								   PosicionesArray[ContadorPosicionArray][0] = PosicionX;
+								   PosicionesArray[ContadorPosicionArray][1] = PosicionY;
+								   ContadorPosicionArray++;
+
+								   MatrizDispersaMD.InsertarMatrizDispersa(PosicionX, PosicionY, Variables::LetraColaFichas);
+								   MatrizDispersaMD.ReporteMatrizDispersa();
+								   ReporteJugadoresFichas1Juego(CabezaJugador1);
+
+                                   gotoxy((Variables::AnchoPantalla/2) - 40, 22);
+								   cout<< "                                                                      " <<endl;
+								   gotoxy((Variables::AnchoPantalla/2) - 10, 24);
+								   cout<< "                           " <<endl;
+								   gotoxy((Variables::AnchoPantalla/2) - 10, 26);
+								   cout<< "                                " <<endl;
+
+								   MenuOpcionesJuego();
+								   ValidarTurno = false;
+								break;
+
+								case 2:
+
+									MatrizDispersaMD.EliminarMatrizDispersa(7, 7);
+
+									MatrizDispersaMD.EliminarMatrizDispersa(1, 1);
+
+									MatrizDispersaMD.ReporteMatrizDispersa();
+
+                                    getch();
+									/*for(int i = 0; i < ContadorFichasArray; i++)
+									{
+										cout << FichasAgregadasArray[i][0] << ". " << FichasAgregadasArray[i][1] <<endl;
+									}
+
+									for(int i = 0; i < ContadorPosicionArray; i++)
+									{
+										cout << PosicionesArray[i][0] << ". " << PosicionesArray[i][1] <<endl;
+									}
+									getch();       */
+									MenuOpcionesJuego();
+
+								break;
+
+								case 3:
+									if(ValidarTurno)
+									{
+										Color(0, 12);
+										gotoxy((Variables::AnchoPantalla/2) - 50, 22);
+										cout<< "Escriba El Indice Separado Por Coma De Las Fichas Que Desea Eliminar: " <<endl;
+										gotoxy((Variables::AnchoPantalla/2) + 20, 22);
+										cin>> CadenaEliminar;
+										SepararCadenaEliminar(CadenaEliminar);
+
+										for(int i = 0; i < ContadorArray; i++)
+										{
+											EliminarLDJ(CabezaJugador1, ColaJugador1, stoi(CadenaEliminarArray[i]));
+											PosicionInsertar = rand() % CantidadColaFichas(FichasColaCabeza) + 1;
+											InsertarEnMedioColaFichas(FichasColaCabeza, PosicionInsertar, Variables::LetraColaFichas, Variables::PunteoColaFichas);
+											EliminarColaFichas(FichasColaCabeza, FichasColaCola);
+											InsertarEnMedioLDJ(CabezaJugador1, ColaJugador1, Variables::LetraColaFichas, Variables::PunteoColaFichas, stoi(CadenaEliminarArray[i]));
+										}
+										Color(0, 10);
+										gotoxy((Variables::AnchoPantalla/2) - 50, 22);
+										cout<< "                                                                                                      " <<endl;
+										gotoxy((Variables::AnchoPantalla/2) - 20, 22);
+										cout<< "Fichas Cambiadas Con Exito! Turno Jugador 2";
+										system("pause > 0");
+										JugadorComienzo = 2;
+										Variables::OpcionOpcionesJuego = 5;
+									}
+									else
+									{
+										Color(0, 4);
+										gotoxy((Variables::AnchoPantalla/2) + 9, 20);
+									}
+								break;
+
+								case 4:
+									if(ValidarTurno == true)
+									{
+										JugadorComienzo = 2;
+										Variables::OpcionOpcionesJuego = 5;
+									}
+									else
+									{
+										Color(0, 4);
+										gotoxy((Variables::AnchoPantalla/2) - 20, 22);
+										cout<< "Debe De Validar Su Turno Antes De Terminarlo";
+										system("pause > 0");
+										MenuOpcionesJuego();
+                                        gotoxy((Variables::AnchoPantalla/2) + 9, 20);
+										cout<< "     ";
+										gotoxy((Variables::AnchoPantalla/2) - 20, 22);
+										cout<< "                                                       ";
+									}
+								break;
+
+								case 5:
+									gotoxy((Variables::AnchoPantalla/2) - 20, 22);
+                                    Color(0, 12);
+									cout<< "Seguro Que Desea Terminar La Partida S/N: ";
+									cin>> TerminarPartida;
+									if(TerminarPartida == "S")
+									{
+										Variables::TerminarJuego = false;
+										Variables::OpcionOpcionesJuego = 5;
+									}
+									else
+									{
+										gotoxy((Variables::AnchoPantalla/2) + 9, 20);
+										cout<< "     ";
+										gotoxy((Variables::AnchoPantalla/2) - 20, 22);
+										cout<< "                                                       ";
+										MenuOpcionesJuego();
+                                    }
+								break;
+							}
+						}
+					break;
+
+					case 2:
+						cout<< "soy Jugador 2";
+						getch();
+						Variables::TerminarJuego = false;
+					break;
+				}
+			}
+		}
 
 	//-----------------------------Reportes---------------------------------
 
@@ -689,6 +1048,7 @@
 			ListaDLDC aux = ListaDiccionario;
 			ReporteDiccionario<< "digraph G" <<endl;
 			ReporteDiccionario<< "{" <<endl;
+			ReporteDiccionario<< "graph [charset=latin1]" <<endl;
 			ReporteDiccionario<< "node [shape = box, fontname = Arial, color = blue];" <<endl;
 
 			int Contador = 0;
@@ -732,15 +1092,15 @@
 				system("C:\\GraficasE\\ReporteDiccionario.png &" );
 
 				Color(0, 10);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "Reporte Generado Con Exito..." <<endl;
 			}
 			else
 			{
 				Color(0, 4);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2 , 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2 , 28);
 				cout<< "No Se Puede Generar El Reporte La Lista Se Encuentra Vacia!" <<endl;
-            }
+			}
 
 		}
 
@@ -750,6 +1110,7 @@
 			ColaFichas aux = Cabeza;
 			ReporteColaFichas<< "digraph G" <<endl;
 			ReporteColaFichas<< "{" <<endl;
+			ReporteColaFichas<< "graph [charset=latin1]" <<endl;
 			ReporteColaFichas<< "node [shape = plaintext]" <<endl;
 
 			if(Cabeza != NULL)
@@ -759,17 +1120,8 @@
 				ReporteColaFichas<< "<table border=\"0\" cellborder=\"1\" cellspacing=\"0\">" << endl;
 				do
 				{
-					if(aux -> Letra == "Ñ")
-					{
-						ReporteColaFichas<< "<tr><td bgcolor = \"lightblue\"><font color=\"#12377E\">" << "|" << " X " << aux -> Punteo << "Pts" << "</font></td></tr>" <<endl;
-					}
-					else
-					{
-                        ReporteColaFichas<< "<tr><td bgcolor = \"lightblue\"><font color=\"#12377E\">" << aux -> Letra << " X " << aux -> Punteo << "Pts" << "</font></td></tr>" <<endl;
-                    }
-
-
-					aux = aux -> sgte;
+					ReporteColaFichas<< "<tr><td bgcolor = \"lightblue\"><font color=\"#12377E\">" << aux -> Letra << " X " << aux -> Punteo << "Pts" << "</font></td></tr>" <<endl;
+            		aux = aux -> sgte;
 				}
 				while(aux != NULL);
 				ReporteColaFichas<< " </table>>" <<endl;
@@ -785,13 +1137,13 @@
 				system("C:\\GraficasE\\ReporteColaFichas.png &" );
 
 				Color(0, 10);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "Reporte Generado Con Exito..." <<endl;
 			}
 			else
 			{
 				Color(0, 4);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "No Se Puede Generar El Reporte La Cola Se Encuentra Vacia!" <<endl;
 			}
 		}
@@ -802,6 +1154,7 @@
 			ListaLS aux = Lista;
 			ReporteArbolPreOrden<< "digraph G" <<endl;
 			ReporteArbolPreOrden<< "{" <<endl;
+			ReporteArbolPreOrden<< "graph [charset=latin1]" <<endl;
 			ReporteArbolPreOrden<< "node [shape = box, fontname = Arial, color = purple]" <<endl;
 
             int Contador = 0;
@@ -844,13 +1197,13 @@
 				system("C:\\GraficasE\\ReporteArbolPreOrden.png &" );
 
 				Color(0, 10);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "Reporte Generado Con Exito..." <<endl;
 			}
 			else
 			{
 				Color(0, 4);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "No Se Puede Generar El Reporte El Arbol Se Encuentra Vacio!" <<endl;
 			}
 		}
@@ -861,6 +1214,7 @@
 			ListaLS aux = Lista;
 			ReporteArbolInOrden<< "digraph G" <<endl;
 			ReporteArbolInOrden<< "{" <<endl;
+			ReporteArbolInOrden<< "graph [charset=latin1]" <<endl;
 			ReporteArbolInOrden<< "node [shape = box, fontname = Arial, color = orange]" <<endl;
 
             int Contador = 0;
@@ -903,13 +1257,13 @@
 				system("C:\\GraficasE\\ReporteArbolInOrden.png &" );
 
 				Color(0, 10);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "Reporte Generado Con Exito..." <<endl;
 			}
 			else
 			{
 				Color(0, 4);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "No Se Puede Generar El Reporte El Arbol Se Encuentra Vacio!" <<endl;
 			}
 		}
@@ -920,6 +1274,7 @@
 			ListaLS aux = Lista;
 			ReporteArbolPostOrden<< "digraph G" <<endl;
 			ReporteArbolPostOrden<< "{" <<endl;
+			ReporteArbolPostOrden<< "graph [charset=latin1]" <<endl;
 			ReporteArbolPostOrden<< "node [shape = box, fontname = Arial, color = brown]" <<endl;
 
             int Contador = 0;
@@ -962,13 +1317,13 @@
 				system("C:\\GraficasE\\ReporteArbolPostOrden.png &" );
 
 				Color(0, 10);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "Reporte Generado Con Exito..." <<endl;
 			}
 			else
 			{
 				Color(0, 4);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "No Se Puede Generar El Reporte El Arbol Se Encuentra Vacio!" <<endl;
 			}
 		}
@@ -978,29 +1333,268 @@
 			ofstream ReporteArbolBinarioBusqueda("C:\\GraficasE\\ReporteArbolBinarioBusqueda.dot");
 			ReporteArbolBinarioBusqueda<< "digraph G" <<endl;
 			ReporteArbolBinarioBusqueda<< "{" <<endl;
+			ReporteArbolBinarioBusqueda<< "graph [charset=latin1]" <<endl;
 			ReporteArbolBinarioBusqueda<< "node [shape = circle, fontname = Arial, color = red];" <<endl;
 			ReporteArbolBinarioBusqueda<< ReporteABB(Arbol) <<endl;
 			ReporteArbolBinarioBusqueda<< "}" <<endl;
 			ReporteArbolBinarioBusqueda.close();
 
-			//Generar Imagen
-			system("C:\\\"Program Files (x86)\"\\Graphviz2.38\\bin\\dot.exe  -Tpng C:\\GraficasE\\ReporteArbolBinarioBusqueda.dot -o C:\\GraficasE\\ReporteArbolBinarioBusqueda.png");
-			//Abrir Imagen
-			system("C:\\GraficasE\\ReporteArbolBinarioBusqueda.png &" );
-
 			if(ReporteABB(Arbol) == "")
 			{
                 Color(0, 4);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
-			    cout<< "No Se Puede Generar El Reporte La Cola Se Encuentra Vacia!" <<endl;
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
+				cout<< "No Se Puede Generar El Reporte El Arbol Se Encuentra Vacio!" <<endl;
 			}
 			else
 			{
+            	//Generar Imagen
+				system("C:\\\"Program Files (x86)\"\\Graphviz2.38\\bin\\dot.exe  -Tpng C:\\GraficasE\\ReporteArbolBinarioBusqueda.dot -o C:\\GraficasE\\ReporteArbolBinarioBusqueda.png");
+				//Abrir Imagen
+				system("C:\\GraficasE\\ReporteArbolBinarioBusqueda.png &" );
+
 				Color(0, 10);
-				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 20);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
 				cout<< "Reporte Generado Con Exito..." <<endl;
 			}
 		}
 
+		void ReporteJugadoresFichas1Reportes(ListaLDJ &Lista)
+		{
+			ofstream ReporteJugadoresFichas1("C:\\GraficasE\\ReporteJugadoresFichas1Reportes.dot");
+			ListaLDJ aux = Lista;
+			ReporteJugadoresFichas1<< "digraph G" <<endl;
+			ReporteJugadoresFichas1<< "{" <<endl;
+			ReporteJugadoresFichas1<< "graph [charset=latin1]" <<endl;
+			ReporteJugadoresFichas1<< "node [shape = box, fontname = Arial, color = purple];" <<endl;
+
+			int Contador = 0;
+			string Temp[1000];
+			string Same = "";
+			string Asc = "";
+			string Desc = "";
+
+			if(Lista != NULL)
+			{
+				do
+				{
+					ReporteJugadoresFichas1<< "A" << Contador << " [label = " <<"\"" << aux -> Letra <<"\"]" <<endl;
+					Temp[Contador] = "A" + to_string(Contador);
+					Contador++;
+					aux = aux -> sgte;
+				}
+				while(aux != NULL);
+
+				for(int i = 0; i < Contador; i++)
+				{
+					Same = Same + Temp[i] + " ";
+					if(i < Contador - 1)
+					{
+						Asc = Asc + Temp[i] + "->";
+						Desc = Desc + Temp[Contador - i - 1] + "->";
+					}
+					else
+					{
+						Asc = Asc + Temp[i];
+						Desc = Desc + Temp[Contador - i - 1];
+					}
+				}
+				ReporteJugadoresFichas1<< "{ rank = same " << Same << "}" << endl;
+				ReporteJugadoresFichas1<< Asc <<endl;
+				ReporteJugadoresFichas1<< " " <<endl;
+                ReporteJugadoresFichas1<< Desc <<endl;
+				ReporteJugadoresFichas1<< " " <<endl;
+				ReporteJugadoresFichas1<< "}";
+				ReporteJugadoresFichas1.close();
+
+				//Generar Imagen
+				system("C:\\\"Program Files (x86)\"\\Graphviz2.38\\bin\\dot.exe  -Tpng C:\\GraficasE\\ReporteJugadoresFichas1Reportes.dot -o C:\\GraficasE\\ReporteJugadoresFichas1Reportes.png");
+				//Abrir Imagen
+				system("C:\\GraficasE\\ReporteJugadoresFichas1Reportes.png &" );
+
+				Color(0, 10);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
+				cout<< "Reporte Generado Con Exito..." <<endl;
+			}
+			else
+			{
+				Color(0, 4);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2 , 28);
+				cout<< "No Se Puede Generar El Reporte La Lista Se Encuentra Vacia!" <<endl;
+			}
+		}
+
+		void ReporteJugadoresFichas1Juego(ListaLDJ &Lista)
+		{
+			ofstream ReporteJugadoresFichas1("C:\\GraficasE\\ReporteJugadoresFichas1Juegos.dot");
+			ListaLDJ aux = Lista;
+			ReporteJugadoresFichas1<< "digraph G" <<endl;
+			ReporteJugadoresFichas1<< "{" <<endl;
+			ReporteJugadoresFichas1<< "graph [charset=latin1]" <<endl;
+			ReporteJugadoresFichas1<< "node [shape = box, fontname = Arial, color = purple];" <<endl;
+
+			int Contador = 1;
+			string Temp[1000];
+			string Same = "";
+			string Asc = "";
+			string Desc = "";
+
+			ReporteJugadoresFichas1<< "A0" << " [label = " <<"\"Jugador 1: " << "\\l" << Variables::Jugador1 <<"\"]" <<endl;
+			Temp[0] = "A0";
+			do
+			{
+				ReporteJugadoresFichas1<< "A" << Contador << " [label = " <<"\"" << Contador << ". " << aux -> Letra <<"\"]" <<endl;
+				Temp[Contador] = "A" + to_string(Contador);
+				Contador++;
+				aux = aux -> sgte;
+			}
+			while(aux != NULL);
+
+			for(int i = 0; i < Contador; i++)
+			{
+				Same = Same + Temp[i] + " ";
+				if(i < Contador - 1)
+				{
+					Asc = Asc + Temp[i] + "->";
+					Desc = Desc + Temp[Contador - i - 1] + "->";
+				}
+				else
+				{
+					Asc = Asc + Temp[i];
+					Desc = Desc + Temp[Contador - i - 1];
+				}
+			}
+			ReporteJugadoresFichas1<< "{ rank = same " << Same << "}" << endl;
+			ReporteJugadoresFichas1<< Asc <<endl;
+			ReporteJugadoresFichas1<< " " <<endl;
+			ReporteJugadoresFichas1<< Desc <<endl;
+			ReporteJugadoresFichas1<< " " <<endl;
+			ReporteJugadoresFichas1<< "}";
+			ReporteJugadoresFichas1.close();
+
+			//Generar Imagen
+			system("C:\\\"Program Files (x86)\"\\Graphviz2.38\\bin\\dot.exe  -Tpng C:\\GraficasE\\ReporteJugadoresFichas1Juegos.dot -o C:\\GraficasE\\ReporteJugadoresFichas1Juegos.png");
+			//Abrir Imagen
+			system("C:\\GraficasE\\ReporteJugadoresFichas1Juegos.png &" );
+		}
+
+		void ReporteJugadoresFichas2Reportes(ListaLDJ &Lista)
+		{
+			ofstream ReporteJugadoresFichas2("C:\\GraficasE\\ReporteJugadoresFichas1Reportes.dot");
+			ListaLDJ aux = Lista;
+			ReporteJugadoresFichas2<< "digraph G" <<endl;
+			ReporteJugadoresFichas2<< "{" <<endl;
+			ReporteJugadoresFichas2<< "graph [charset=latin1]" <<endl;
+			ReporteJugadoresFichas2<< "node [shape = box, fontname = Arial, color = orange];" <<endl;
+
+			int Contador = 0;
+			string Temp[1000];
+			string Same = "";
+			string Asc = "";
+			string Desc = "";
+
+			if(aux != NULL)
+			{
+				do
+				{
+					ReporteJugadoresFichas2<< "A" << Contador << " [label = " <<"\"" << aux -> Letra <<"\"]" <<endl;
+					Temp[Contador] = "A" + to_string(Contador);
+					Contador++;
+					aux = aux -> sgte;
+				}
+				while(aux != NULL);
+
+				for(int i = 0; i < Contador; i++)
+				{
+					Same = Same + Temp[i] + " ";
+					if(i < Contador - 1)
+					{
+						Asc = Asc + Temp[i] + "->";
+						Desc = Desc + Temp[Contador - i - 1] + "->";
+					}
+					else
+					{
+						Asc = Asc + Temp[i];
+						Desc = Desc + Temp[Contador - i - 1];
+					}
+				}
+				ReporteJugadoresFichas2<< "{ rank = same " << Same << "}" << endl;
+				ReporteJugadoresFichas2<< Asc <<endl;
+				ReporteJugadoresFichas2<< " " <<endl;
+				ReporteJugadoresFichas2<< Desc <<endl;
+				ReporteJugadoresFichas2<< " " <<endl;
+				ReporteJugadoresFichas2<< "}";
+				ReporteJugadoresFichas2.close();
+
+				//Generar Imagen
+				system("C:\\\"Program Files (x86)\"\\Graphviz2.38\\bin\\dot.exe  -Tpng C:\\GraficasE\\ReporteJugadoresFichas2Reportes.dot -o C:\\GraficasE\\ReporteJugadoresFichas2Reportes.png");
+				//Abrir Imagen
+				system("C:\\GraficasE\\ReporteJugadoresFichas2Reportes.png &" );
+
+				Color(0, 10);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2, 28);
+				cout<< "Reporte Generado Con Exito..." <<endl;
+			}
+			else
+			{
+				Color(0, 4);
+				gotoxy ((Variables::AnchoPantalla - 2)/2 - 2 , 28);
+				cout<< "No Se Puede Generar El Reporte La Lista Se Encuentra Vacia!" <<endl;
+			}
+		}
+
+		void ReporteJugadoresFichas2Juego(ListaLDJ &Lista)
+		{
+			ofstream ReporteJugadoresFichas2("C:\\GraficasE\\ReporteJugadoresFichas2Juegos.dot");
+			ListaLDJ aux = Lista;
+			ReporteJugadoresFichas2<< "digraph G" <<endl;
+			ReporteJugadoresFichas2<< "{" <<endl;
+			ReporteJugadoresFichas2<< "graph [charset=latin1]" <<endl;
+			ReporteJugadoresFichas2<< "node [shape = box, fontname = Arial, color = purple];" <<endl;
+
+			int Contador = 1;
+			string Temp[1000];
+			string Same = "";
+			string Asc = "";
+			string Desc = "";
+
+			ReporteJugadoresFichas2<< "A0" << " [label = " <<"\"Jugador 2: " << "\\l" << Variables::Jugador2 <<"\"]" <<endl;
+			Temp[0] = "A0";
+
+			do
+			{
+				ReporteJugadoresFichas2<< "A" << Contador << " [label = " <<"\"" << aux -> Letra <<"\"]" <<endl;
+				Temp[Contador] = "A" + to_string(Contador);
+				Contador++;
+				aux = aux -> sgte;
+			}
+			while(aux != NULL);
+
+			for(int i = 0; i < Contador; i++)
+			{
+				Same = Same + Temp[i] + " ";
+				if(i < Contador - 1)
+				{
+					Asc = Asc + Temp[i] + "->";
+					Desc = Desc + Temp[Contador - i - 1] + "->";
+				}
+				else
+				{
+					Asc = Asc + Temp[i];
+					Desc = Desc + Temp[Contador - i - 1];
+				}
+			}
+			ReporteJugadoresFichas2<< "{ rank = same " << Same << "}" << endl;
+			ReporteJugadoresFichas2<< Asc <<endl;
+			ReporteJugadoresFichas2<< " " <<endl;
+			ReporteJugadoresFichas2<< Desc <<endl;
+			ReporteJugadoresFichas2<< " " <<endl;
+			ReporteJugadoresFichas2<< "}";
+			ReporteJugadoresFichas2.close();
+
+			//Generar Imagen
+			system("C:\\\"Program Files (x86)\"\\Graphviz2.38\\bin\\dot.exe  -Tpng C:\\GraficasE\\ReporteJugadoresFichas2Juegos.dot -o C:\\GraficasE\\ReporteJugadoresFichas2Juegos.png");
+			//Abrir Imagen
+			system("C:\\GraficasE\\ReporteJugadoresFichas2Juegos.png &" );
+		}
 
 
