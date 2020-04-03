@@ -171,14 +171,21 @@
 		 Variables::LetraColaFichas = aux -> Letra;
 		 Variables::PunteoColaFichas = aux -> Punteo;
 
-		 if(Cabeza == Cola)
+		 if(Cabeza == NULL)
 		 {
-			 Cabeza = NULL;
-			 Cola = NULL;
+			 Variables::ColaVacia = true;
 		 }
 		 else
 		 {
-			 Cabeza = Cabeza -> sgte;
+			 if(Cabeza == Cola)
+			 {
+				 Cabeza = NULL;
+				 Cola = NULL;
+			 }
+			 else
+			 {
+				 Cabeza = Cabeza -> sgte;
+			 }
+			 delete(aux);
 		 }
-		 delete(aux);
 	}

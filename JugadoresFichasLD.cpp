@@ -106,6 +106,19 @@
 		}
 	}
 
+	int SizeLDJ(ListaLDJ &Cabeza)
+	{
+		ListaLDJ aux = Cabeza;
+		int Contador = 0;
+
+		while(aux != NULL)
+		{
+			Contador++;
+			aux = aux -> sgte;
+		}
+		return Contador;
+    }
+
 	void EliminarLDJ(ListaLDJ &Cabeza, ListaLDJ &Cola, int Posicion)
 	{
 		Posicion = Posicion - 1;
@@ -116,14 +129,39 @@
 		}
 		if(Posicion == 0)
 		{
-			ListaLDJ Temp = Cabeza -> sgte;
-			Variables::LetraColaFichas = Cabeza -> Letra;
-			Variables::PunteoColaFichas = Cabeza -> Punteo;
-			delete(Cabeza);
-			Cabeza = Temp;
-			Cabeza -> ante = NULL;
+			if(SizeLDJ(Cabeza) == 1)
+			{
+                ListaLDJ aux = Cabeza;
+
+				if(aux -> sgte != NULL)
+				{
+					while((aux -> sgte) -> sgte != NULL)
+					{
+						aux = aux -> sgte;
+					}
+					Variables::LetraColaFichas = aux -> sgte -> Letra;
+					Variables::PunteoColaFichas = aux -> sgte -> Punteo;
+					delete(aux -> sgte);
+					aux -> sgte = NULL;
+				}
+				else
+				{
+					Variables::LetraColaFichas = Cabeza -> Letra;
+					Variables::PunteoColaFichas = Cabeza -> Punteo;
+					Cabeza = NULL;
+				}
+			}
+			else
+			{
+				ListaLDJ Temp = Cabeza -> sgte;
+				Variables::LetraColaFichas = Cabeza -> Letra;
+				Variables::PunteoColaFichas = Cabeza -> Punteo;
+				delete(Cabeza);
+				Cabeza = Temp;
+				Cabeza -> ante = NULL;
+			}
 		}
-		else if(Posicion == 6)
+		else if(Posicion == SizeLDJ(Cabeza) - 1)
 		{
 			ListaLDJ aux = Cabeza;
 
@@ -141,7 +179,7 @@
 			else
 			{
 				Cabeza = NULL;
-            }
+			}
 		}
 		else
 		{

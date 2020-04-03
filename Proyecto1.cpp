@@ -27,7 +27,8 @@
 	#include <FichasCola.h>
 	#include <JugadoresABB.h>
 	#include <RecorridosLS.h>
-    #include <FichasLS.h>
+	#include <FichasLS.h>
+	#include <ScoreBoardLS.h>
 	#include <MatrizDispersa.h>
 	using namespace std;
 
@@ -60,9 +61,11 @@
 		ListaLDJ CabezaJugador2 = NULL;
 		ListaLDJ ColaJugador2 = NULL;
 		ListaFichas ListaFichasDT = NULL;
+		ScoreBoardLista ScoreBoard = NULL;
 		MatrizDispersa<string> MatrizDispersaMD;
 
 		int Contador = 1;
+		string NombreReporte = "";
 
         while(Variables::OpcionMenu != 4)
 		{
@@ -120,7 +123,7 @@
 									ColaJugador1 = NULL;
 									CabezaJugador2 = NULL;
 									ColaJugador2 = NULL;
-									Jugar(ArbolJugadores, ListaRecorridos, CabezaJugador1, CabezaJugador2, ColaJugador1, ColaJugador2, ColaFichasCabeza, ColaFichasCola, MatrizDispersaMD, Contador);
+									Jugar(ListaFichasDT, ListaDobleCircularDiccionario, ScoreBoard, ArbolJugadores, ListaRecorridos, CabezaJugador1, CabezaJugador2, ColaJugador1, ColaJugador2, ColaFichasCabeza, ColaFichasCola, MatrizDispersaMD, Contador);
 									ColaFichasCabeza = NULL;
 									ColaFichasCola = NULL;
 								}
@@ -226,7 +229,12 @@
 							break;
 
 							case 7:
-								cout<< "Reporte Puntajes";
+								Color(0, 14);
+								gotoxy((Variables::AnchoPantalla/2) - 21, 30);
+								cout<< "Ingrese El Nombre Del Jugador Para Ver Su Historial: " << endl;
+								gotoxy((Variables::AnchoPantalla/2) + 32, 30);
+								cin>> NombreReporte;
+								ReporteHistorialPuntajes(ScoreBoard, NombreReporte);
 								system("pause > 0");
 								system("cls");
 								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
@@ -234,8 +242,7 @@
 							break;
 
 							case 8:
-							     cout<< "Reporte ScoreBoard";
-								system("pause > 0");
+								ReporteListaSimpleOrdenadaScoreBoard(ScoreBoard);
 								system("cls");
 								MarcoReportes(0, Variables::AnchoPantalla - 2, 0, Variables::AltoPantalla + 6);
 								MenuReporte();

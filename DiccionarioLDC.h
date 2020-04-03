@@ -45,6 +45,8 @@
 
 	void EliminarPalabraDLDC(ListaDLDC &Lista, int Posicion);
 
+    bool BuscarPalabraDLDC(ListaDLDC &Lista, string Palabra);
+
 //------------------------------------------------------------------------------
 
 	#endif

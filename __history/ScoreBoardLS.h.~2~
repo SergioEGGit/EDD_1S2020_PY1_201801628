@@ -1,0 +1,41 @@
+//------------------------------------------------------------------------------
+
+	#ifndef ScoreBoardLSH
+	#define SocreBoardLSH
+
+//------------------------------Librerias---------------------------------------
+
+	#include <iostream>
+	#include <stdio.h>
+	#include <conio.h>
+	#include <string>
+	#include <windows.h>
+	#include <fstream>
+	#include <algorithm>
+	#include <functional>
+	#include <cctype>
+	#include <locale>
+	#include <cstring>
+	using namespace std;
+
+//-----------------------------Estructura---------------------------------------
+
+	struct ScoreBoardLS
+	{
+		string Nombre;
+		int Punteo;
+		struct ScoreBoardLS *sgte;
+	};
+
+	typedef struct ScoreBoardLS *ScoreBoardLista;
+
+
+//-----------------------------Métodos------------------------------------------
+
+	void InsertarFinalScoreBoard(ScoreBoardLista &Lista, string Nombre, int Punteo);
+
+    void OrdenarListaScoreBoard(ScoreBoardLista &Lista);
+
+//------------------------------------------------------------------------------
+
+	#endif

@@ -157,4 +157,31 @@
 			cout<< "Lista Vacia" << endl;
             system("pause > 0");
         }
+
+
+	}
+
+	bool BuscarPalabraDLDC(ListaDLDC &Lista, string Palabra)
+	{
+		ListaDLDC aux = Lista;
+		bool Bandera = false;
+		string PalabraIngresar = "";
+       	do
+		{
+			PalabraIngresar = aux -> Palabra;
+
+			for_each(PalabraIngresar.begin(), PalabraIngresar.end(), [](char & C)
+			{
+				C = ::toupper(C);
+			});
+
+			if(Palabra == PalabraIngresar)
+			{
+				Bandera = true;
+			}
+
+            aux = aux -> sgte;
+		}
+		while(aux != Lista);
+		return Bandera;
 	}

@@ -35,6 +35,8 @@
 
 	void InsertarFinalListaFichas(ListaFichas &Lista, int X, int Y, string Tipo);
 
+	string BuscarFichasLS(ListaFichas &Lista, int x, int y);
+
 //------------------------------------------------------------------------------
 
 	#endif

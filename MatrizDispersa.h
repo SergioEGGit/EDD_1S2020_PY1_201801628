@@ -60,6 +60,8 @@
 		   void ReporteMatrizDispersa();
 
 		   bool EstaVacia();
+
+		   string BuscarNodo(int x, int y);
 	 };
 
 
@@ -391,6 +393,38 @@
 
 	template<class T>
 
+	string MatrizDispersa<T>::BuscarNodo(int x, int y)
+	{
+		MatrizDispersaNodo<T> *ColumnaNodo = BuscarColumna(x);
+		MatrizDispersaNodo<T> *FilaNodo = BuscarFila(y);
+
+		if(ColumnaNodo != nullptr && FilaNodo != nullptr)
+		{
+			MatrizDispersaNodo<T> *Aux = Raiz;
+
+			while(Aux != nullptr)
+			{
+				if(Aux -> getY() == y)
+				{
+					break;
+				}
+				Aux = Aux -> getDownNode();
+			}
+
+		   while(Aux != nullptr)
+		   {
+			   if(Aux -> getX() == x)
+			   {
+				   return Aux -> getObject();
+			   }
+			   Aux = Aux -> getNextNode();
+		   }
+		}
+		return "";
+	}
+
+	template<class T>
+
 	void MatrizDispersa<T>::ReporteMatrizDispersa()
 	{
 		ofstream Archivo("C:\\GraficasE\\TableroMatrizDispersa.dot");
@@ -406,8 +440,9 @@
 				MatrizDispersaNodo<T> *Aux;
 
 				Archivo<< "digraph G {" << endl;
+				Archivo<< "graph [charset=latin1]" <<endl;
 				Archivo<< "node [shape = box]" << endl;
-				Archivo<< "Mt[ label = \"Matriz Dispersa\", width = 1.5, font = \"Times New Roman\", fontcolor = \"#0131D3\", style = filled, fillcolor = \"#6CFFA4\", group = 1 ];" << endl;
+				Archivo<< "Mt[ label = \"Matriz Dispersa  Y\\X \", width = 1.5, font = \"Times New Roman\", fontcolor = \"#0131D3\", style = filled, fillcolor = \"#6CFFA4\", group = 1 ];" << endl;
 
 				while(FilaHeaders != nullptr)
 				{

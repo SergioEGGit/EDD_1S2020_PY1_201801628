@@ -36,7 +36,9 @@
 
 	void InsertarFinalLDJ(ListaLDJ &Cabeza, ListaLDJ &Cola, string Letra, int Punteo);
 
-    void InsertarEnMedioLDJ(ListaLDJ &Cabeza, ListaLDJ &Cola, string Letra, int Punteo, int Posicion);
+	void InsertarEnMedioLDJ(ListaLDJ &Cabeza, ListaLDJ &Cola, string Letra, int Punteo, int Posicion);
+
+    int SizeLDJ(ListaLDJ &Cabeza);
 
 	void EliminarLDJ(ListaLDJ &Cabeza, ListaLDJ &Cola, int Posicion);
 
