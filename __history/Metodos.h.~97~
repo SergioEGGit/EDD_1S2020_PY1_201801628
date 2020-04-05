@@ -22,7 +22,8 @@
 	#include <JugadoresABB.h>
 	#include <FichasLS.h>
 	#include <JugadoresFichasLD.h>
-    #include <MatrizDispersa.h>
+	#include <MatrizDispersa.h>
+	#include <ScoreBoardLS.h>
 	using namespace std;
 //------------------------------------------------------------------------------
 
@@ -49,22 +50,21 @@
 		extern bool TerminarJuego;
 		extern int ContadorReccorridos;
 		extern int OpcionOpcionesJuego;
-		extern int NumeroNodos;
+		extern bool ColaVacia;
+		extern string NombreReporte;
 	};
 
 //--------------------------Definición Métodos----------------------------------
 
-//-----------------------------Colores----------------------------------
+//-----------------------------------Varios----------------------------------
 
 		void Color(int Background, int Text);
 
-	//---------------------------Fullscreen---------------------------------
-
 		void Fullscreen();
 
-	//---------------------Obtener Resolución Pantalla----------------------
-
 		void Resolucion();
+
+		void SepararCadenaEliminar(string CadenaEliminar);
 
 	//------------------------------Menú------------------------------------
 
@@ -102,7 +102,9 @@
 
 		void AgregarJugadores();
 
-		void Jugar(ArbolABB &Arbol, ListaLS &Lista, ListaLDJ &CabezaJugador1, ListaLDJ &CabezaJugador2, ListaLDJ &ColaJugador1, ListaLDJ &ColaJugador2, ColaFichas &FichasColaCabeza, ColaFichas &FichasColaCola, MatrizDispersa<string> &MatrizDispersaMD, int Contador);
+        void LimparMatriz();
+
+		void Jugar(ListaFichas &ListaFichasTD, ListaDLDC &ListaDiccionario, ScoreBoardLista &ScoreBoard, ArbolABB &Arbol, ListaLS &Lista, ListaLDJ &CabezaJugador1, ListaLDJ &CabezaJugador2, ListaLDJ &ColaJugador1, ListaLDJ &ColaJugador2, ColaFichas &FichasColaCabeza, ColaFichas &FichasColaCola, MatrizDispersa<string> &MatrizDispersaMD, int Contador);
 
 	//-----------------------------Reportes---------------------------------
 
@@ -125,5 +127,9 @@
 		void ReporteJugadoresFichas2Reportes(ListaLDJ &Lista);
 
 		void ReporteJugadoresFichas2Juego(ListaLDJ &Lista);
+
+		void ReporteListaSimpleOrdenadaScoreBoard(ScoreBoardLista &ScoreBoard);
+
+		void ReporteHistorialPuntajes(ScoreBoardLista &ScoreBoard, string Nombre);
 
 

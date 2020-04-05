@@ -727,6 +727,30 @@
 			cin>> Variables::NombreJugador;
 		}
 
+		void LimparMatriz(MatrizDispersa<string> &MatrizDispersaMD, ListaFichas &ListaFichasTD)
+		{
+			MatrizDispersaMD.VaciarMatriz();
+
+			int Temp = Variables::DimensionTablero / 2;
+
+			MatrizDispersaMD.InsertarMatrizDispersa(Temp, Temp, "Centro");
+
+			ListaFichas aux = ListaFichasTD;
+
+			while(aux != NULL)
+			{
+				if(aux -> Tipo == "Dobles")
+				{
+					MatrizDispersaMD.InsertarMatrizDispersa(aux -> X, aux -> Y, "Dobles");
+				}
+				else
+				{
+					MatrizDispersaMD.InsertarMatrizDispersa(aux -> X, aux -> Y, "Triples");
+				}
+				aux = aux -> sgte;
+			}
+		}
+
 		void Jugar(ListaFichas &ListaFichasTD, ListaDLDC &ListaDiccionario, ScoreBoardLista &ScoreBoard, ArbolABB &Arbol, ListaLS &Lista, ListaLDJ &CabezaJugador1, ListaLDJ &CabezaJugador2, ListaLDJ &ColaJugador1, ListaLDJ &ColaJugador2,  ColaFichas &FichasColaCabeza, ColaFichas &FichasColaCola, MatrizDispersa<string> &MatrizDispersaMD, int Contador)
 		{
 			Color(0, 9);
@@ -758,6 +782,8 @@
 			bool AgregueFichas2 = false;
 			bool LlenarFicha2 = false;
 			Variables::TerminarJuego = true;
+
+			LimparMatriz(MatrizDispersaMD, ListaFichasTD);
 
 			while(SalidaJugador1)
 			{
@@ -1061,9 +1087,9 @@
 												MatrizDispersaMD.EliminarMatrizDispersa(PosicionesArray[i][0], PosicionesArray[i][1]);
 											}
 
-											for(int i = 0; i < ContadorFichasArray; i++)
+											for(int i = 0; i < ContadorPosicionArray; i++)
 											{
-												InsertarFinalLDJ(CabezaJugador1, ColaJugador1, FichasAgregadasArray[i][0], stoi(FichasAgregadasArray[i][1]));
+												InsertarInicioLDJ(CabezaJugador1, ColaJugador1, FichasAgregadasArray[i][0], stoi(FichasAgregadasArray[i][1]));
 											}
 
                                             MatrizDispersaMD.ReporteMatrizDispersa();
@@ -1155,7 +1181,7 @@
 									Color(0, 12);
 									cout<< "Seguro Que Desea Terminar La Partida S/N: ";
 									cin>> TerminarPartida;
-									if(TerminarPartida == "S")
+									if(TerminarPartida == "S" || TerminarPartida == "s")
 									{
 										if(PuntosJugador1 > PuntosJugador2)
 										{
@@ -1182,7 +1208,7 @@
 										Variables::TerminarJuego = false;
 										Variables::OpcionOpcionesJuego = 6;
 									}
-									else
+									else if(TerminarPartida == "N" || TerminarPartida == "n")
 									{
 										gotoxy((Variables::AnchoPantalla/2) + 9, 20);
 										cout<< "     ";
@@ -1289,7 +1315,7 @@
 
 									   MatrizDispersaMD.InsertarMatrizDispersa(PosicionX, PosicionY, Variables::LetraColaFichas);
 									   MatrizDispersaMD.ReporteMatrizDispersa();
-									   ReporteJugadoresFichas1Juego(CabezaJugador2);
+									   ReporteJugadoresFichas2Juego(CabezaJugador2);
 
 									   gotoxy((Variables::AnchoPantalla/2) - 40, 22);
 									   cout<< "                                                                      " <<endl;
@@ -1356,9 +1382,9 @@
 												MatrizDispersaMD.EliminarMatrizDispersa(PosicionesArray[i][0], PosicionesArray[i][1]);
 											}
 
-											for(int i = 0; i < ContadorFichasArray; i++)
+											for(int i = 0; i < ContadorPosicionArray; i++)
 											{
-												InsertarFinalLDJ(CabezaJugador2, ColaJugador2, FichasAgregadasArray[i][0], stoi(FichasAgregadasArray[i][1]));
+                                     		    InsertarInicioLDJ(CabezaJugador2, ColaJugador2, FichasAgregadasArray[i][0], stoi(FichasAgregadasArray[i][1]));
 											}
 
 											MatrizDispersaMD.ReporteMatrizDispersa();
@@ -1450,7 +1476,7 @@
 									Color(0, 12);
 									cout<< "Seguro Que Desea Terminar La Partida S/N: ";
 									cin>> TerminarPartida;
-									if(TerminarPartida == "S")
+									if(TerminarPartida == "S" || TerminarPartida == "s")
 									{
 										if(PuntosJugador1 > PuntosJugador2)
 										{
@@ -1477,7 +1503,7 @@
 										Variables::TerminarJuego = false;
 										Variables::OpcionOpcionesJuego = 6;
 									}
-									else
+									else if(TerminarPartida == "N" || TerminarPartida == "n")
 									{
 										gotoxy((Variables::AnchoPantalla/2) + 9, 20);
 										cout<< "     ";
@@ -2042,7 +2068,7 @@
 			ReporteJugadoresFichas2<< "digraph G" <<endl;
 			ReporteJugadoresFichas2<< "{" <<endl;
 			ReporteJugadoresFichas2<< "graph [charset=latin1]" <<endl;
-			ReporteJugadoresFichas2<< "node [shape = box, fontname = Arial, color = purple];" <<endl;
+			ReporteJugadoresFichas2<< "node [shape = box, fontname = Arial, color = orange];" <<endl;
 
 			int Contador = 1;
 			string Temp[1000];
@@ -2052,12 +2078,12 @@
 
 			if(aux == NULL)
 			{
-				ReporteJugadoresFichas2<< "A0" << " [label = " <<"\"Jugador 1: " << "\\l" << Variables::Jugador2 <<"\"]" <<endl;
+				ReporteJugadoresFichas2<< "A0" << " [label = " <<"\"Jugador 2: " << "\\l" << Variables::Jugador2 <<"\"]" <<endl;
 				ReporteJugadoresFichas2<< "{ rank = same " << "A0" << "}" << endl;
 			}
 			else
 			{
-				ReporteJugadoresFichas2<< "A0" << " [label = " <<"\"Jugador 1: " << "\\l" << Variables::Jugador2 <<"\"]" <<endl;
+				ReporteJugadoresFichas2<< "A0" << " [label = " <<"\"Jugador 2: " << "\\l" << Variables::Jugador2 <<"\"]" <<endl;
 				Temp[0] = "A0";
 				do
 				{

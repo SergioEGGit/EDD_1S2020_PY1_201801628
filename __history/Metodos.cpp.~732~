@@ -727,6 +727,30 @@
 			cin>> Variables::NombreJugador;
 		}
 
+		void LimparMatriz(MatrizDispersa<string> &MatrizDispersaMD, ListaFichas &ListaFichasTD)
+		{
+			MatrizDispersaMD.VaciarMatriz();
+
+			int Temp = Variables::DimensionTablero / 2;
+
+			MatrizDispersaMD.InsertarMatrizDispersa(Temp, Temp, "Centro");
+
+			ListaFichas aux = ListaFichasTD;
+
+			while(aux != NULL)
+			{
+				if(aux -> Tipo == "Dobles")
+				{
+					MatrizDispersaMD.InsertarMatrizDispersa(aux -> X, aux -> Y, "Dobles");
+				}
+				else
+				{
+					MatrizDispersaMD.InsertarMatrizDispersa(aux -> X, aux -> Y, "Triples");
+				}
+				aux = aux -> sgte;
+			}
+		}
+
 		void Jugar(ListaFichas &ListaFichasTD, ListaDLDC &ListaDiccionario, ScoreBoardLista &ScoreBoard, ArbolABB &Arbol, ListaLS &Lista, ListaLDJ &CabezaJugador1, ListaLDJ &CabezaJugador2, ListaLDJ &ColaJugador1, ListaLDJ &ColaJugador2,  ColaFichas &FichasColaCabeza, ColaFichas &FichasColaCola, MatrizDispersa<string> &MatrizDispersaMD, int Contador)
 		{
 			Color(0, 9);
@@ -758,6 +782,8 @@
 			bool AgregueFichas2 = false;
 			bool LlenarFicha2 = false;
 			Variables::TerminarJuego = true;
+
+			LimparMatriz(MatrizDispersaMD, ListaFichasTD);
 
 			while(SalidaJugador1)
 			{
@@ -1162,7 +1188,7 @@
 											Color(0, 10);
 											gotoxy((Variables::AnchoPantalla/2) - 15, 24);
 											cout<< "El Ganador Es Jugador 1: " << Variables::Jugador1 <<endl;
-											gotoxy((Variables::AnchoPantalla/2) - 20, 26);
+											gotoxy((Variables::AnchoPantalla/2) - 4, 26);
 											cout<< "Punteo: " << PuntosJugador1 <<endl;
 											system("pause > 0");
 										}
@@ -1171,7 +1197,7 @@
 											Color(0, 10);
 											gotoxy((Variables::AnchoPantalla/2) - 15, 24);
 											cout<< "El Ganador Es Jugador 2: " << Variables::Jugador2 <<endl;
-											gotoxy((Variables::AnchoPantalla/2) - 20, 26);
+											gotoxy((Variables::AnchoPantalla/2) - 4, 26);
 											cout<< "Punteo: " << PuntosJugador2 <<endl;
 											system("pause > 0");
 										}
@@ -1289,7 +1315,7 @@
 
 									   MatrizDispersaMD.InsertarMatrizDispersa(PosicionX, PosicionY, Variables::LetraColaFichas);
 									   MatrizDispersaMD.ReporteMatrizDispersa();
-									   ReporteJugadoresFichas1Juego(CabezaJugador2);
+									   ReporteJugadoresFichas2Juego(CabezaJugador2);
 
 									   gotoxy((Variables::AnchoPantalla/2) - 40, 22);
 									   cout<< "                                                                      " <<endl;
@@ -1457,7 +1483,7 @@
 											Color(0, 10);
 											gotoxy((Variables::AnchoPantalla/2) - 15, 24);
 											cout<< "El Ganador Es Jugador 1: " << Variables::Jugador1 <<endl;
-											gotoxy((Variables::AnchoPantalla/2) - 20, 26);
+											gotoxy((Variables::AnchoPantalla/2) - 4, 26);
 											cout<< "Punteo: " << PuntosJugador1 <<endl;
 											system("pause > 0");
 										}
@@ -1466,7 +1492,7 @@
 											Color(0, 10);
 											gotoxy((Variables::AnchoPantalla/2) - 15, 24);
 											cout<< "El Ganador Es Jugador 2: " << Variables::Jugador2 <<endl;
-											gotoxy((Variables::AnchoPantalla/2) - 20, 26);
+											gotoxy((Variables::AnchoPantalla/2) - 4, 26);
 											cout<< "Punteo: " << PuntosJugador2 <<endl;
 											system("pause > 0");
 										}
@@ -1500,7 +1526,7 @@
 							Color(0, 10);
 							gotoxy((Variables::AnchoPantalla/2) - 15, 26);
 							cout<< "El Ganador Es Jugador 1: " << Variables::Jugador1 <<endl;
-							gotoxy((Variables::AnchoPantalla/2) - 20, 28);
+							gotoxy((Variables::AnchoPantalla/2) - 4, 28);
 							cout<< "Punteo: " << PuntosJugador1 <<endl;
 							system("pause > 0");
 						}
@@ -1509,7 +1535,7 @@
 							Color(0, 10);
 							gotoxy((Variables::AnchoPantalla/2) - 15, 26);
 							cout<< "El Ganador Es Jugador 2: " << Variables::Jugador2 <<endl;
-							gotoxy((Variables::AnchoPantalla/2) - 20, 28);
+							gotoxy((Variables::AnchoPantalla/2) - 4, 28);
 							cout<< "Punteo: " << PuntosJugador2 <<endl;
 							system("pause > 0");
 						}
@@ -1972,7 +1998,7 @@
 
 		void ReporteJugadoresFichas2Reportes(ListaLDJ &Lista)
 		{
-			ofstream ReporteJugadoresFichas2("C:\\GraficasE\\ReporteJugadoresFichas1Reportes.dot");
+			ofstream ReporteJugadoresFichas2("C:\\GraficasE\\ReporteJugadoresFichas2Reportes.dot");
 			ListaLDJ aux = Lista;
 			ReporteJugadoresFichas2<< "digraph G" <<endl;
 			ReporteJugadoresFichas2<< "{" <<endl;
@@ -2042,7 +2068,7 @@
 			ReporteJugadoresFichas2<< "digraph G" <<endl;
 			ReporteJugadoresFichas2<< "{" <<endl;
 			ReporteJugadoresFichas2<< "graph [charset=latin1]" <<endl;
-			ReporteJugadoresFichas2<< "node [shape = box, fontname = Arial, color = purple];" <<endl;
+			ReporteJugadoresFichas2<< "node [shape = box, fontname = Arial, color = orange];" <<endl;
 
 			int Contador = 1;
 			string Temp[1000];

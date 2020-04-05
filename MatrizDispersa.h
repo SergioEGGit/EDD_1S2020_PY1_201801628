@@ -62,6 +62,8 @@
 		   bool EstaVacia();
 
 		   string BuscarNodo(int x, int y);
+
+		   void VaciarMatriz();
 	 };
 
 
@@ -78,6 +80,13 @@
 	{
 
 	}
+
+	template<class T>
+
+	void MatrizDispersa<T>::VaciarMatriz()
+	{
+		Raiz = new MatrizDispersaNodo<T>(-1, -1);
+    }
 
 	template<class T>
 

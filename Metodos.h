@@ -102,6 +102,8 @@
 
 		void AgregarJugadores();
 
+        void LimparMatriz(MatrizDispersa<string> &MatrizDispersaMD, ListaFichas &ListaFichasTD);
+
 		void Jugar(ListaFichas &ListaFichasTD, ListaDLDC &ListaDiccionario, ScoreBoardLista &ScoreBoard, ArbolABB &Arbol, ListaLS &Lista, ListaLDJ &CabezaJugador1, ListaLDJ &CabezaJugador2, ListaLDJ &ColaJugador1, ListaLDJ &ColaJugador2, ColaFichas &FichasColaCabeza, ColaFichas &FichasColaCola, MatrizDispersa<string> &MatrizDispersaMD, int Contador);
 
 	//-----------------------------Reportes---------------------------------
