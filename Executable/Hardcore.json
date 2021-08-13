@@ -1,0 +1,3241 @@
+{
+	"dimension":5,
+	"casillas":{
+		"dobles":[
+			{
+				"x":2,
+				"y":5
+			},
+			{
+				"x":4,
+				"y":10
+			},
+			{
+				"x":10,
+				"y":15
+			},
+			{
+				"x":15,
+				"y":10
+			},
+			{
+				"x":2,
+				"y":8
+			},
+			{
+				"x":9,
+				"y":1
+			}
+		],
+		"triples":[
+			{
+				"x":1,
+				"y":1
+			},
+			{
+				"x":6,
+				"y":10
+			},
+			{
+				"x":5,
+				"y":15
+			},
+			{
+				"x":7,
+				"y":3
+			},
+			{
+				"x":3,
+				"y":1
+			},
+			{
+				"x":11,
+				"y":5
+			},
+			{
+				"x":9,
+				"y":2
+			},
+			{
+				"x":6,
+				"y":2
+			},
+			{
+				"x":17,
+				"y":4
+			}
+		]
+	},
+	"diccionario":[
+		{
+			"palabra": "dia"
+		},
+		{
+			"palabra": "ateo"
+		},
+		{
+			"palabra": "esa"
+		},
+		{
+			"palabra": "oso"
+		},
+		{
+			"palabra": "gol"
+		},
+		{
+			"palabra": "denis"
+		},
+		{
+			"palabra": "green"
+		},
+		{
+			"palabra": "tren"
+		},
+		{
+			"palabra": "una"
+		},
+		{
+			"palabra": "user"
+		},
+		{
+			"palabra": "sur"
+		},
+		{
+			"palabra": "uso"
+		},
+		{
+			"palabra": "dea"
+		},
+		{
+			"palabra": "techo"
+		},
+		{
+			"palabra": "tacho"
+		},
+		{
+			"palabra": "echo"
+		},
+		{
+			"palabra": "cui"
+		},
+		{
+			"palabra": "cia"
+		},
+		{
+			"palabra": "tina"
+		},
+		{
+			"palabra": "aei"
+		},
+		{
+			"palabra": "nido"
+		},
+		{
+			"palabra": "seno"
+		},
+		{
+			"palabra": "son"
+		},
+		{
+			"palabra": "doce"
+		},
+		{
+			"palabra": "saco"
+		},
+		{
+			"palabra": "casa"
+		},
+		{
+			"palabra": "cosa"
+		},
+		{
+			"palabra": "roer"
+		},
+		{
+			"palabra": "tela"
+		},
+		{
+			"palabra": "old"
+		},
+		{
+			"palabra": "elrod"
+		},
+		{
+			"palabra": "dedo"
+		},
+		{
+			"palabra": "leo"
+		},
+		{
+			"palabra": "lord"
+		},
+		{
+			"palabra": "reo"
+		},
+		{
+			"palabra": "anne"
+		},
+		{
+			"palabra": "cena"
+		},
+		{
+			"palabra": "cine"
+		},
+		{
+			"palabra": "necio"
+		},
+		{
+			"palabra": "necia"
+		},
+		{
+			"palabra": "cien"
+		},
+		{
+			"palabra": "rae"
+		},
+		{
+			"palabra": "leon"
+		},
+		{
+			"palabra": "era"
+		},
+		{
+			"palabra": "hola"
+		},
+		{
+			"palabra": "you"
+		},
+		{
+			"palabra": "tu"
+		},
+		{
+			"palabra": "dios"
+		},
+		{
+			"palabra": "foca"
+		},
+		{
+			"palabra": "devil"
+		},
+		{
+			"palabra": "cola"
+		},
+		{
+			"palabra": "ala"
+		},
+		{
+			"palabra": "zeta"
+		},
+		{
+			"palabra": "feel"
+		},
+		{
+			"palabra": "ahora"
+		},
+		{
+			"palabra": "rojo"
+		},
+		{
+			"palabra": "rola"
+		},
+		{
+			"palabra": "IRA"
+		},
+		{
+			"palabra": "AEA"
+		},
+		{
+			"palabra": "ver"
+		},
+		{
+			"palabra": "eco"
+		},
+		{
+			"palabra": "see"
+		},
+		{
+			"palabra": "filo"
+		},
+		{
+			"palabra": "and"
+		},
+		{
+			"palabra": "xnor"
+		},
+		{
+			"palabra": "abduzcan"
+		},
+		{
+			"palabra": "leche"
+		},
+		{
+			"palabra": "leer"
+		},
+		{
+			"palabra": "raja"
+		},
+		{
+			"palabra": "rico"
+		},
+		{
+			"palabra": "forte"
+		},
+		{
+			"palabra": "ayer"
+		},
+		{
+			"palabra": "lost"
+		},
+		{
+			"palabra": "boss"
+		},
+		{
+			"palabra": "walk"
+		},
+		{
+			"palabra": "row"
+		},
+		{
+			"palabra": "box"
+		},
+		{
+			"palabra": "table"
+		},
+		{
+			"palabra": "malone"
+		},
+		{
+			"palabra": "fire"
+		},
+		{
+			"palabra": "six"
+		},
+		{
+			"palabra": "let"
+		},
+		{
+			"palabra": "hell"
+		},
+		{
+			"palabra": "water"
+		},
+		{
+			"palabra": "grammy"
+		},
+		{
+			"palabra": "are"
+		},
+		{
+			"palabra": "am"
+		},
+		{
+			"palabra": "love"
+		},
+		{
+			"palabra": "medic"
+		},
+		{
+			"palabra": "feather"
+		},
+		{
+			"palabra": "trust"
+		},
+		{
+			"palabra": "wife"
+		},
+		{
+			"palabra": "song"
+		},
+		{
+			"palabra": "blame"
+		},
+		{
+			"palabra": "city"
+		},
+		{
+			"palabra": "angels"
+		},
+		{
+			"palabra": "house"
+		},
+		{
+			"palabra": "sun"
+		},
+		{
+			"palabra": "again"
+		},
+		{
+			"palabra": "beauty"
+		},
+		{
+			"palabra": "where"
+		},
+		{
+			"palabra": "donde"
+		},
+		{
+			"palabra": "cuando"
+		},
+		{
+			"palabra": "romeo"
+		},
+		{
+			"palabra": "sol"
+		},
+		{
+			"palabra": "wrong"
+		},
+		{
+			"palabra": "señorita"
+		},
+		{
+			"palabra": "clear"
+		},
+		{
+			"palabra": "mama"
+		},
+		{
+			"palabra": "gonna"
+		},
+		{
+			"palabra": "want"
+		},
+		{
+			"palabra": "alone"
+		},
+		{
+			"palabra": "color"
+		},
+		{
+			"palabra": "eyes"
+		},
+		{
+			"palabra": "ojos"
+		},
+		{
+			"palabra": "shade"
+		},
+		{
+			"palabra": "shadow"
+		},
+		{
+			"palabra": "moses"
+		},
+		{
+			"palabra": "time"
+		},
+		{
+			"palabra": "momento"
+		},
+		{
+			"palabra": "tiempo"
+		},
+		{
+			"palabra": "end"
+		},
+		{
+			"palabra": "ser"
+		},
+		{
+			"palabra": "humano"
+		},
+		{
+			"palabra": "sound"
+		},
+		{
+			"palabra": "close"
+		},
+		{
+			"palabra": "cerca"
+		},
+		{
+			"palabra": "far"
+		},
+		{
+			"palabra": "lejos"
+		},
+		{
+			"palabra": "left"
+		},
+		{
+			"palabra": "right"
+		},
+		{
+			"palabra": "crecer"
+		},
+		{
+			"palabra": "vida"
+		},
+		{
+			"palabra": "life"
+		},
+		{
+			"palabra": "ir"
+		},
+		{
+			"palabra": "buscar"
+		},
+		{
+			"palabra": "amor"
+		},
+		{
+			"palabra": "dumb"
+		},
+		{
+			"palabra": "money"
+		},
+		{
+			"palabra": "dinero"
+		},
+		{
+			"palabra": "go"
+		},
+		{
+			"palabra": "burn"
+		},
+		{
+			"palabra": "broke"
+		},
+		{
+			"palabra": "quemar"
+		},
+		{
+			"palabra": "queso"
+		},
+		{
+			"palabra": "people"
+		},
+		{
+			"palabra": "persona"
+		},
+		{
+			"palabra": "down"
+		},
+		{
+			"palabra": "new"
+		},
+		{
+			"palabra": "logic"
+		},
+		{
+			"palabra": "binary"
+		},
+		{
+			"palabra": "tree"
+		},
+		{
+			"palabra": "young"
+		},
+		{
+			"palabra": "vibe"
+		},
+		{
+			"palabra": "fight"
+		},
+		{
+			"palabra": "yo"
+		},
+		{
+			"palabra": "well"
+		},
+		{
+			"palabra": "defeat"
+		},
+		{
+			"palabra": "now"
+		},
+		{
+			"palabra": "vicious"
+		},
+		{
+			"palabra": "damn"
+		},
+		{
+			"palabra": "fe"
+		},
+		{
+			"palabra": "mar"
+		},
+		{
+			"palabra": "el"
+		},
+		{
+			"palabra": "ese"
+		},
+		{
+			"palabra": "pez"
+		},
+		{
+			"palabra": "eso"
+		},
+		{
+			"palabra": "voy"
+		},
+		{
+			"palabra": "va"
+		},
+		{
+			"palabra": "mira"
+		},
+		{
+			"palabra": "ela"
+		},
+		{
+			"palabra": "ana"
+		},
+		{
+			"palabra": "red"
+		},
+
+		{
+			"palabra": "atun"
+		},
+
+		{
+			"palabra": "ten"
+		},
+
+		{
+			"palabra": "luz"
+		},
+
+		{
+			"palabra": "run"
+		},
+
+		{
+			"palabra": "cole"
+		},
+		{
+			"palabra": "cel"
+		},
+		{
+			"palabra": "tel"
+		},
+		{
+			"palabra": "ano"
+		},
+		{
+			"palabra": "fuck"
+		},
+		{
+			"palabra": "crap"
+		},
+		{
+			"palabra": "roto"
+		},
+		{
+			"palabra": "roca"
+		},
+		{
+			"palabra": "ola"
+		},
+		{
+			"palabra": "alu"
+		},
+		{
+			"palabra": "robo"
+		},
+		{
+			"palabra": "nena"
+		},
+		{
+			"palabra": "baby"
+		},
+		{
+			"palabra": "reta"
+		},
+		{
+			"palabra": "papa"
+		},
+		{
+			"palabra": "te"
+		},
+		{
+			"palabra": "uno"
+		},
+		{
+			"palabra": "dos"
+		},
+		{
+			"palabra": "we"
+		},
+		{
+			"palabra": "si"
+		},
+		{
+			"palabra": "yes"
+		},
+		{
+			"palabra": "no"
+		},
+		{
+			"palabra": "now"
+		},
+		{
+			"palabra": "bad"
+		},
+		{
+			"palabra": "guy"
+		},
+		{
+			"palabra": "hope"
+		},
+		{
+			"palabra": "otak"
+		},
+		{
+			"palabra": "ajo"
+		},
+		{
+			"palabra": "aro"
+		},
+		{
+			"palabra": "ball"
+		},
+		{
+			"palabra": "can"
+		},
+		{
+			"palabra": "car"
+		},
+		{
+			"palabra": "oso"
+		},
+		{
+			"palabra": "sal"
+		},
+		{
+			"palabra": "pie"
+		},
+		{
+			"palabra": "pan"
+		},
+		{
+			"palabra": "sed"
+		},
+		{
+			"palabra": "tos"
+		},
+		{
+			"palabra": "luz"
+		},
+		{
+			"palabra": "uva"
+		},
+		{
+			"palabra": "rio"
+		},
+		{
+			"palabra": "feo"
+		},
+		{
+			"palabra": "fea"
+		},
+		{
+			"palabra": "ron"
+		},
+		{
+			"palabra": "cat"
+		},
+		{
+			"palabra": "dog"
+		},
+		{
+			"palabra": "res"
+		},
+{
+"palabra":"aji"
+},
+{
+"palabra":"ajo"
+},
+{
+"palabra":"ala"
+},
+{
+"palabra":"ale"
+},
+{
+"palabra":"ali"
+},
+{
+"palabra":"ama"
+},
+{
+"palabra":"ame"
+},
+{
+"palabra":"ami"
+},
+{
+"palabra":"amo"
+},
+{
+"palabra":"ana"
+},
+{
+"palabra":"ano"
+},
+{
+"palabra":"aña"
+},
+{
+"palabra":"año"
+},
+{
+"palabra":"ble"
+},
+{
+"palabra":"boa"
+},
+{
+"palabra":"boj"
+},
+{
+"palabra":"bol"
+},
+{
+"palabra":"bon"
+},
+{
+"palabra":"bou"
+},
+{
+"palabra":"box"
+},
+{
+"palabra":"bua"
+},
+{
+"palabra":"bue"
+},
+{
+"palabra":"bum"
+},
+{
+"palabra":"bus"
+},
+{
+"palabra":"buz"
+},
+{
+"palabra":""
+},
+{
+"palabra":"caz"
+},
+{
+"palabra":"cea"
+},
+{
+"palabra":"ceo"
+},
+{
+"palabra":"ces"
+},
+{
+"palabra":"cha"
+},
+{
+"palabra":"che"
+},
+{
+"palabra":"cho"
+},
+{
+"palabra":"cia"
+},
+{
+"palabra":"cid"
+},
+{
+"palabra":"cie"
+},
+{
+"palabra":"cio"
+},
+{
+"palabra":"clo"
+},
+{
+"palabra":"coa"
+},
+{
+"palabra":"dia"
+},
+{
+"palabra":"dij"
+},
+{
+"palabra":"din"
+},
+{
+"palabra":"dio"
+},
+{
+"palabra":"dix"
+},
+{
+"palabra":"dom"
+},
+{
+"palabra":"don"
+},
+{
+"palabra":"dos"
+},
+{
+"palabra":"doy"
+},
+{
+"palabra":"dua"
+},
+{
+"palabra":"duo"
+},
+{
+"palabra":"dux"
+},
+{
+"palabra":"duz"
+},
+{
+"palabra":"ene"
+},
+{
+"palabra":"eñe"
+},
+{
+"palabra":"eon"
+},
+{
+"palabra":"epa"
+},
+{
+"palabra":"epo"
+},
+{
+"palabra":"era"
+},
+{
+"palabra":"ere"
+},
+{
+"palabra":"erg"
+},
+{
+"palabra":"ero"
+},
+{
+"palabra":"esa"
+},
+{
+"palabra":"ese"
+},
+{
+"palabra":"eso"
+},
+{
+"palabra":"eta"
+},
+{
+"palabra":"fes"
+},
+{
+"palabra":"fez"
+},
+{
+"palabra":"fia"
+},
+{
+"palabra":"fie"
+},
+{
+"palabra":"fil"
+},
+{
+"palabra":"fin"
+},
+{
+"palabra":"fio"
+},
+{
+"palabra":"fon"
+},
+{
+"palabra":"fua"
+},
+{
+"palabra":"fue"
+},
+{
+"palabra":"fui"
+},
+{
+"palabra":"ful"
+},
+{
+"palabra":""
+},
+{
+"palabra":"ges"
+},
+{
+"palabra":"gil"
+},
+{
+"palabra":"gin"
+},
+{
+"palabra":"gis"
+},
+{
+"palabra":"gol"
+},
+{
+"palabra":"gro"
+},
+{
+"palabra":"gua"
+},
+{
+"palabra":"hoz"
+},
+{
+"palabra":"huf"
+},
+{
+"palabra":"hui"
+},
+{
+"palabra":"hum"
+},
+{
+"palabra":"huy"
+},
+{
+"palabra":"iza"
+},
+{
+"palabra":"izo"
+},
+{
+"palabra":"lev"
+},
+{
+"palabra":"ley"
+},
+{
+"palabra":"lia"
+},
+{
+"palabra":"lid"
+},
+{
+"palabra":"lie"
+},
+{
+"palabra":"lio"
+},
+{
+"palabra":"lis"
+},
+{
+"palabra":"lle"
+},
+{
+"palabra":"loa"
+},
+{
+"palabra":"loe"
+},
+{
+"palabra":"loo"
+},
+{
+"palabra":"los"
+},
+{
+"palabra":"lua"
+},
+{
+"palabra":"mia"
+},
+{
+"palabra":"mie"
+},
+{
+"palabra":"mil"
+},
+{
+"palabra":"mio"
+},
+{
+"palabra":"mir"
+},
+{
+"palabra":"mis"
+},
+{
+"palabra":"miz"
+},
+{
+"palabra":"moa"
+},
+{
+"palabra":"mol"
+},
+{
+"palabra":"mor"
+},
+{
+"palabra":"mue"
+},
+{
+"palabra":"mui"
+},
+{
+"palabra":"mur"
+},
+{
+"palabra":"oir"
+},
+{
+"palabra":"ois"
+},
+{
+"palabra":"ojo"
+},
+{
+"palabra":"ola"
+},
+{
+"palabra":"ole"
+},
+{
+"palabra":"oli"
+},
+{
+"palabra":"ona"
+},
+{
+"palabra":"opa"
+},
+{
+"palabra":"ora"
+},
+{
+"palabra":"ore"
+},
+{
+"palabra":"ori"
+},
+{
+"palabra":"oro"
+},
+{
+"palabra":"osa"
+},
+{
+"palabra":"peo"
+},
+{
+"palabra":"pes"
+},
+{
+"palabra":"pez"
+},
+{
+"palabra":"pia"
+},
+{
+"palabra":"pie"
+},
+{
+"palabra":"pin"
+},
+{
+"palabra":"pio"
+},
+{
+"palabra":"pis"
+},
+{
+"palabra":"ple"
+},
+{
+"palabra":"poa"
+},
+{
+"palabra":"pom"
+},
+{
+"palabra":"pon"
+},
+{
+"palabra":"pop"
+},
+{
+"palabra":"rey"
+},
+{
+"palabra":"ria"
+},
+{
+"palabra":"rie"
+},
+{
+"palabra":"rio"
+},
+{
+"palabra":"roa"
+},
+{
+"palabra":"rob"
+},
+{
+"palabra":"roe"
+},
+{
+"palabra":"roi"
+},
+{
+"palabra":"rol"
+},
+{
+"palabra":"ron"
+},
+{
+"palabra":"roo"
+},
+{
+"palabra":"ros"
+},
+{
+"palabra":"rua"
+},
+{
+"palabra":"seo"
+},
+{
+"palabra":"ser"
+},
+{
+"palabra":"ses"
+},
+{
+"palabra":"set"
+},
+{
+"palabra":"sic"
+},
+{
+"palabra":"sij"
+},
+{
+"palabra":"sil"
+},
+{
+"palabra":"sin"
+},
+{
+"palabra":"sis"
+},
+{
+"palabra":"siu"
+},
+{
+"palabra":"sol"
+},
+{
+"palabra":"son"
+},
+{
+"palabra":"sor"
+},
+{
+"palabra":"ter"
+},
+{
+"palabra":"tes"
+},
+{
+"palabra":"tex"
+},
+{
+"palabra":"tez"
+},
+{
+"palabra":"tia"
+},
+{
+"palabra":"tic"
+},
+{
+"palabra":"tio"
+},
+{
+"palabra":"toa"
+},
+{
+"palabra":"toe"
+},
+{
+"palabra":"tol"
+},
+{
+"palabra":"ton"
+},
+{
+"palabra":"too"
+},
+{
+"palabra":"top"
+},
+{
+"palabra":"une"
+},
+{
+"palabra":"uni"
+},
+{
+"palabra":"uno"
+},
+{
+"palabra":"uña"
+},
+{
+"palabra":"uñe"
+},
+{
+"palabra":"uñi"
+},
+{
+"palabra":"uño"
+},
+{
+"palabra":"upa"
+},
+{
+"palabra":"upe"
+},
+{
+"palabra":"upo"
+},
+{
+"palabra":"ura"
+},
+{
+"palabra":"uro"
+},
+{
+"palabra":"usa"
+},
+{
+"palabra":"vez"
+},
+{
+"palabra":"via"
+},
+{
+"palabra":"vid"
+},
+{
+"palabra":"vil"
+},
+{
+"palabra":"vio"
+},
+{
+"palabra":"vip"
+},
+{
+"palabra":"vis"
+},
+{
+"palabra":"vos"
+},
+{
+"palabra":"voy"
+},
+{
+"palabra":"voz"
+},
+{
+"palabra":""
+},
+{
+"palabra":""
+},
+{
+"palabra":""
+},
+{
+"palabra":"abur"
+},
+{
+"palabra":"acal"
+},
+{
+"palabra":"acas"
+},
+{
+"palabra":"achi"
+},
+{
+"palabra":"acle"
+},
+{
+"palabra":"acme"
+},
+{
+"palabra":"acne"
+},
+{
+"palabra":"acre"
+},
+{
+"palabra":"acta"
+},
+{
+"palabra":"acto"
+},
+{
+"palabra":"adan"
+},
+{
+"palabra":"adia"
+},
+{
+"palabra":"adie"
+},
+{
+"palabra":"bala"
+},
+{
+"palabra":"bale"
+},
+{
+"palabra":"balo"
+},
+{
+"palabra":"baña"
+},
+{
+"palabra":"bañe"
+},
+{
+"palabra":"baño"
+},
+{
+"palabra":"baos"
+},
+{
+"palabra":"bari"
+},
+{
+"palabra":"barn"
+},
+{
+"palabra":"baro"
+},
+{
+"palabra":"basa"
+},
+{
+"palabra":"base"
+},
+{
+"palabra":"baso"
+},
+{
+"palabra":"caen"
+},
+{
+"palabra":"caer"
+},
+{
+"palabra":"caes"
+},
+{
+"palabra":"cafe"
+},
+{
+"palabra":"caga"
+},
+{
+"palabra":"cago"
+},
+{
+"palabra":"caia"
+},
+{
+"palabra":"caid"
+},
+{
+"palabra":"cais"
+},
+{
+"palabra":"caja"
+},
+{
+"palabra":"caji"
+},
+{
+"palabra":"cajo"
+},
+{
+"palabra":"cala"
+},
+{
+"palabra":"dañe"
+},
+{
+"palabra":"daño"
+},
+{
+"palabra":"dara"
+},
+{
+"palabra":"dare"
+},
+{
+"palabra":"data"
+},
+{
+"palabra":"date"
+},
+{
+"palabra":"dato"
+},
+{
+"palabra":"daza"
+},
+{
+"palabra":"deal"
+},
+{
+"palabra":"dean"
+},
+{
+"palabra":"deas"
+},
+{
+"palabra":"deba"
+},
+{
+"palabra":"debe"
+},
+{
+"palabra":"edil"
+},
+{
+"palabra":"edra"
+},
+{
+"palabra":"edre"
+},
+{
+"palabra":"edro"
+},
+{
+"palabra":"efes"
+},
+{
+"palabra":"efod"
+},
+{
+"palabra":"egos"
+},
+{
+"palabra":"eira"
+},
+{
+"palabra":"ejem"
+},
+{
+"palabra":"ejes"
+},
+{
+"palabra":"eles"
+},
+{
+"palabra":"elfo"
+},
+{
+"palabra":"ella"
+},
+{
+"palabra":"falo"
+},
+{
+"palabra":"fama"
+},
+{
+"palabra":"fame"
+},
+{
+"palabra":"fano"
+},
+{
+"palabra":"faña"
+},
+{
+"palabra":"fañe"
+},
+{
+"palabra":"faño"
+},
+{
+"palabra":"fara"
+},
+{
+"palabra":"faro"
+},
+{
+"palabra":"fase"
+},
+{
+"palabra":"faso"
+},
+{
+"palabra":"fata"
+},
+{
+"palabra":"fato"
+},
+{
+"palabra":"gala"
+},
+{
+"palabra":"galo"
+},
+{
+"palabra":"gama"
+},
+{
+"palabra":"gamo"
+},
+{
+"palabra":"gana"
+},
+{
+"palabra":"gane"
+},
+{
+"palabra":"gang"
+},
+{
+"palabra":"gano"
+},
+{
+"palabra":"gaña"
+},
+{
+"palabra":"gañe"
+},
+{
+"palabra":"gañi"
+},
+{
+"palabra":"gaño"
+},
+{
+"palabra":"gaon"
+},
+{
+"palabra":"hall"
+},
+{
+"palabra":"halo"
+},
+{
+"palabra":"hamo"
+},
+{
+"palabra":"hara"
+},
+{
+"palabra":"hare"
+},
+{
+"palabra":"hato"
+},
+{
+"palabra":"havo"
+},
+{
+"palabra":"haya"
+},
+{
+"palabra":"hayo"
+},
+{
+"palabra":"haza"
+},
+{
+"palabra":"hede"
+},
+{
+"palabra":"hedi"
+},
+{
+"palabra":"hela"
+},
+{
+"palabra":"idas"
+},
+{
+"palabra":"idea"
+},
+{
+"palabra":"idee"
+},
+{
+"palabra":"idem"
+},
+{
+"palabra":"ideo"
+},
+{
+"palabra":"idos"
+},
+{
+"palabra":"idus"
+},
+{
+"palabra":"iglu"
+},
+{
+"palabra":"ijar"
+},
+{
+"palabra":"ileo"
+},
+{
+"palabra":"imam"
+},
+{
+"palabra":"iman"
+},
+{
+"palabra":"inca"
+},
+{
+"palabra":"jala"
+},
+{
+"palabra":"jale"
+},
+{
+"palabra":"jalo"
+},
+{
+"palabra":"jama"
+},
+{
+"palabra":"jame"
+},
+{
+"palabra":"jamo"
+},
+{
+"palabra":"jane"
+},
+{
+"palabra":"jaña"
+},
+{
+"palabra":"jaño"
+},
+{
+"palabra":"jara"
+},
+{
+"palabra":"jaro"
+},
+{
+"palabra":"jasa"
+},
+{
+"palabra":"jase"
+},
+{
+"palabra":"laja"
+},
+{
+"palabra":"lama"
+},
+{
+"palabra":"lame"
+},
+{
+"palabra":"lami"
+},
+{
+"palabra":"lamo"
+},
+{
+"palabra":"lana"
+},
+{
+"palabra":"laña"
+},
+{
+"palabra":"lañe"
+},
+{
+"palabra":"laño"
+},
+{
+"palabra":"lapa"
+},
+{
+"palabra":"lapo"
+},
+{
+"palabra":"lasa"
+},
+{
+"palabra":"laso"
+},
+{
+"palabra":"maje"
+},
+{
+"palabra":"majo"
+},
+{
+"palabra":"mala"
+},
+{
+"palabra":"mali"
+},
+{
+"palabra":"malo"
+},
+{
+"palabra":"mama"
+},
+{
+"palabra":"mame"
+},
+{
+"palabra":"mamo"
+},
+{
+"palabra":"mams"
+},
+{
+"palabra":"mana"
+},
+{
+"palabra":"mane"
+},
+{
+"palabra":"mani"
+},
+{
+"palabra":"mano"
+},
+{
+"palabra":"nadi"
+},
+{
+"palabra":"nado"
+},
+{
+"palabra":"naif"
+},
+{
+"palabra":"naja"
+},
+{
+"palabra":"nana"
+},
+{
+"palabra":"naos"
+},
+{
+"palabra":"napa"
+},
+{
+"palabra":"nasa"
+},
+{
+"palabra":"naso"
+},
+{
+"palabra":"nata"
+},
+{
+"palabra":"nato"
+},
+{
+"palabra":"nava"
+},
+{
+"palabra":"nave"
+},
+{
+"palabra":"ñeco"
+},
+{
+"palabra":"ñipe"
+},
+{
+"palabra":"ñire"
+},
+{
+"palabra":"ñoca"
+},
+{
+"palabra":"ñoco"
+},
+{
+"palabra":"ñola"
+},
+{
+"palabra":"ñoña"
+},
+{
+"palabra":"ñoño"
+},
+{
+"palabra":"ñora"
+},
+{
+"palabra":"ñuca"
+},
+{
+"palabra":"ñuco"
+},
+{
+"palabra":"ñudo"
+},
+{
+"palabra":"ñues"
+},
+{
+"palabra":"ocho"
+},
+{
+"palabra":"ocia"
+},
+{
+"palabra":"ocie"
+},
+{
+"palabra":"ocio"
+},
+{
+"palabra":"ocle"
+},
+{
+"palabra":"ocra"
+},
+{
+"palabra":"ocre"
+},
+{
+"palabra":"odas"
+},
+{
+"palabra":"odia"
+},
+{
+"palabra":"odie"
+},
+{
+"palabra":"odio"
+},
+{
+"palabra":"odre"
+},
+{
+"palabra":"ogro"
+},
+{
+"palabra":"paje"
+},
+{
+"palabra":"pajo"
+},
+{
+"palabra":"pala"
+},
+{
+"palabra":"pale"
+},
+{
+"palabra":"pali"
+},
+{
+"palabra":"palo"
+},
+{
+"palabra":"pana"
+},
+{
+"palabra":"pano"
+},
+{
+"palabra":"pañi"
+},
+{
+"palabra":"paño"
+},
+{
+"palabra":"papa"
+},
+{
+"palabra":"pape"
+},
+{
+"palabra":"papo"
+},
+{
+"palabra":"rafa"
+},
+{
+"palabra":"rafe"
+},
+{
+"palabra":"ragu"
+},
+{
+"palabra":"raia"
+},
+{
+"palabra":"rail"
+},
+{
+"palabra":"rain"
+},
+{
+"palabra":"raiz"
+},
+{
+"palabra":"raja"
+},
+{
+"palabra":"raje"
+},
+{
+"palabra":"rajo"
+},
+{
+"palabra":"rala"
+},
+{
+"palabra":"ralo"
+},
+{
+"palabra":"rama"
+},
+{
+"palabra":"saje"
+},
+{
+"palabra":"sajo"
+},
+{
+"palabra":"sala"
+},
+{
+"palabra":"sale"
+},
+{
+"palabra":"sali"
+},
+{
+"palabra":"salo"
+},
+{
+"palabra":"sama"
+},
+{
+"palabra":"sana"
+},
+{
+"palabra":"sane"
+},
+{
+"palabra":"sano"
+},
+{
+"palabra":"sant"
+},
+{
+"palabra":"saña"
+},
+{
+"palabra":"saos"
+},
+{
+"palabra":"tafo"
+},
+{
+"palabra":"taha"
+},
+{
+"palabra":"taja"
+},
+{
+"palabra":"taje"
+},
+{
+"palabra":"tajo"
+},
+{
+"palabra":"taju"
+},
+{
+"palabra":"tala"
+},
+{
+"palabra":"tale"
+},
+{
+"palabra":"talo"
+},
+{
+"palabra":"tamo"
+},
+{
+"palabra":"tana"
+},
+{
+"palabra":"tano"
+},
+{
+"palabra":"taña"
+},
+{
+"palabra":"ulua"
+},
+{
+"palabra":"umju"
+},
+{
+"palabra":"unan"
+},
+{
+"palabra":"unas"
+},
+{
+"palabra":"unce"
+},
+{
+"palabra":"unci"
+},
+{
+"palabra":"unen"
+},
+{
+"palabra":"unes"
+},
+{
+"palabra":"unge"
+},
+{
+"palabra":"ungi"
+},
+{
+"palabra":"unia"
+},
+{
+"palabra":"unid"
+},
+{
+"palabra":"unio"
+},
+{
+"palabra":"vaho"
+},
+{
+"palabra":"vais"
+},
+{
+"palabra":"vale"
+},
+{
+"palabra":"vali"
+},
+{
+"palabra":"vals"
+},
+{
+"palabra":"vana"
+},
+{
+"palabra":"vano"
+},
+{
+"palabra":"vara"
+},
+{
+"palabra":"vare"
+},
+{
+"palabra":"vari"
+},
+{
+"palabra":"varo"
+},
+{
+"palabra":"vasa"
+},
+{
+"palabra":"vaso"
+},
+{
+"palabra":"yapa"
+},
+{
+"palabra":"yape"
+},
+{
+"palabra":"yapo"
+},
+{
+"palabra":"yapu"
+},
+{
+"palabra":"yare"
+},
+{
+"palabra":"yaro"
+},
+{
+"palabra":"yate"
+},
+{
+"palabra":"yaya"
+},
+{
+"palabra":"yayo"
+},
+{
+"palabra":"yebo"
+},
+{
+"palabra":"yeco"
+},
+{
+"palabra":"yema"
+},
+{
+"palabra":"yero"
+},
+{
+"palabra":"zape"
+},
+{
+"palabra":"zapo"
+},
+{
+"palabra":"zata"
+},
+{
+"palabra":"zaya"
+},
+{
+"palabra":"zaza"
+},
+{
+"palabra":"zazo"
+},
+{
+"palabra":"zeda"
+},
+{
+"palabra":"zeta"
+},
+{
+"palabra":"zinc"
+},
+{
+"palabra":"zoca"
+},
+{
+"palabra":"zoco"
+},
+{
+"palabra":"zoma"
+},
+{
+"palabra":"zomo"
+},
+{
+"palabra":"zote"
+},
+{
+"palabra":"zuñi"
+},
+{
+"palabra":"zuño"
+},
+{
+"palabra":"zura"
+},
+{
+"palabra":"zuro"
+},
+{
+"palabra":"zuzo"
+},
+{
+"palabra":"zapo"
+},
+{
+"palabra":"zata"
+},
+{
+"palabra":"zaya"
+},
+{
+"palabra":"zaza"
+},
+{
+"palabra":"zazo"
+},
+{
+"palabra":"abale"
+},
+{
+"palabra":"abalo"
+},
+{
+"palabra":"abana"
+},
+{
+"palabra":"abane"
+},
+{
+"palabra":"abano"
+},
+{
+"palabra":"abaña"
+},
+{
+"palabra":"abañe"
+},
+{
+"palabra":"abaño"
+},
+{
+"palabra":"abasi"
+},
+{
+"palabra":"abata"
+},
+{
+"palabra":"abate"
+},
+{
+"palabra":"abati"
+},
+{
+"palabra":"abato"
+},
+{
+"palabra":"bacas"
+},
+{
+"palabra":"bache"
+},
+{
+"palabra":"bacia"
+},
+{
+"palabra":"bacin"
+},
+{
+"palabra":"bacon"
+},
+{
+"palabra":"badal"
+},
+{
+"palabra":"badan"
+},
+{
+"palabra":"badas"
+},
+{
+"palabra":"badea"
+},
+{
+"palabra":"baden"
+},
+{
+"palabra":"badil"
+},
+{
+"palabra":"bafle"
+},
+{
+"palabra":"bagad"
+},
+{
+"palabra":"cabos"
+},
+{
+"palabra":"cabra"
+},
+{
+"palabra":"cabre"
+},
+{
+"palabra":"cabro"
+},
+{
+"palabra":"cacan"
+},
+{
+"palabra":"cacao"
+},
+{
+"palabra":"cacas"
+},
+{
+"palabra":"cacea"
+},
+{
+"palabra":"cacee"
+},
+{
+"palabra":"cacen"
+},
+{
+"palabra":"caceo"
+},
+{
+"palabra":"caces"
+},
+{
+"palabra":"cacha"
+},
+{
+"palabra":"dagas"
+},
+{
+"palabra":"dahir"
+},
+{
+"palabra":"daifa"
+},
+{
+"palabra":"dajao"
+},
+{
+"palabra":"dalas"
+},
+{
+"palabra":"dalgo"
+},
+{
+"palabra":"dalia"
+},
+{
+"palabra":"dalla"
+},
+{
+"palabra":"dalle"
+},
+{
+"palabra":"dallo"
+},
+{
+"palabra":"damas"
+},
+{
+"palabra":"damil"
+},
+{
+"palabra":"damos"
+},
+{
+"palabra":"ecuas"
+},
+{
+"palabra":"ecuos"
+},
+{
+"palabra":"edema"
+},
+{
+"palabra":"edila"
+},
+{
+"palabra":"edita"
+},
+{
+"palabra":"edite"
+},
+{
+"palabra":"edito"
+},
+{
+"palabra":"edrad"
+},
+{
+"palabra":"edran"
+},
+{
+"palabra":"edrar"
+},
+{
+"palabra":"edras"
+},
+{
+"palabra":"edren"
+},
+{
+"palabra":"edres"
+},
+{
+"palabra":"facho"
+},
+{
+"palabra":"facil"
+},
+{
+"palabra":"facon"
+},
+{
+"palabra":"facto"
+},
+{
+"palabra":"fadas"
+},
+{
+"palabra":"fados"
+},
+{
+"palabra":"faena"
+},
+{
+"palabra":"faene"
+},
+{
+"palabra":"faeno"
+},
+{
+"palabra":"fagos"
+},
+{
+"palabra":"fagot"
+},
+{
+"palabra":"faina"
+},
+{
+"palabra":"faino"
+},
+{
+"palabra":"gafar"
+},
+{
+"palabra":"gafas"
+},
+{
+"palabra":"gafea"
+},
+{
+"palabra":"gafee"
+},
+{
+"palabra":"gafen"
+},
+{
+"palabra":"gafeo"
+},
+{
+"palabra":"gafes"
+},
+{
+"palabra":"gafos"
+},
+{
+"palabra":"gagas"
+},
+{
+"palabra":"gagos"
+},
+{
+"palabra":"gaita"
+},
+{
+"palabra":"gajes"
+},
+{
+"palabra":"gajos"
+},
+{
+"palabra":"habon"
+},
+{
+"palabra":"habra"
+},
+{
+"palabra":"habre"
+},
+{
+"palabra":"habus"
+},
+{
+"palabra":"hacan"
+},
+{
+"palabra":"haced"
+},
+{
+"palabra":"hacen"
+},
+{
+"palabra":"hacer"
+},
+{
+"palabra":"haces"
+},
+{
+"palabra":"hacha"
+},
+{
+"palabra":"hache"
+},
+{
+"palabra":"hacho"
+},
+{
+"palabra":"hacia"
+},
+{
+"palabra":"icono"
+},
+{
+"palabra":"ictus"
+},
+{
+"palabra":"idead"
+},
+{
+"palabra":"ideal"
+},
+{
+"palabra":"idean"
+},
+{
+"palabra":"idear"
+},
+{
+"palabra":"ideas"
+},
+{
+"palabra":"ideay"
+},
+{
+"palabra":"ideen"
+},
+{
+"palabra":"idees"
+},
+{
+"palabra":"ideos"
+},
+{
+"palabra":"idolo"
+},
+{
+"palabra":"iglus"
+},
+{
+"palabra":"jacas"
+},
+{
+"palabra":"jacer"
+},
+{
+"palabra":"jacha"
+},
+{
+"palabra":"jacos"
+},
+{
+"palabra":"jacta"
+},
+{
+"palabra":"jacte"
+},
+{
+"palabra":"jacto"
+},
+{
+"palabra":"jadas"
+},
+{
+"palabra":"jadea"
+},
+{
+"palabra":"jadee"
+},
+{
+"palabra":"jadeo"
+},
+{
+"palabra":"jades"
+},
+{
+"palabra":"jadia"
+},
+{
+"palabra":"lacad"
+},
+{
+"palabra":"lacan"
+},
+{
+"palabra":"lacar"
+},
+{
+"palabra":"lacas"
+},
+{
+"palabra":"lacea"
+},
+{
+"palabra":"lacee"
+},
+{
+"palabra":"lacen"
+},
+{
+"palabra":"laceo"
+},
+{
+"palabra":"laces"
+},
+{
+"palabra":"lacha"
+},
+{
+"palabra":"lacho"
+},
+{
+"palabra":"lacia"
+},
+{
+"palabra":"lacio"
+},
+{
+"palabra":"maceo"
+},
+{
+"palabra":"maces"
+},
+{
+"palabra":"macha"
+},
+{
+"palabra":"mache"
+},
+{
+"palabra":"machi"
+},
+{
+"palabra":"macho"
+},
+{
+"palabra":"macia"
+},
+{
+"palabra":"macio"
+},
+{
+"palabra":"macis"
+},
+{
+"palabra":"macla"
+},
+{
+"palabra":"macon"
+},
+{
+"palabra":"macro"
+},
+{
+"palabra":"macua"
+},
+{
+"palabra":"naced"
+},
+{
+"palabra":"nacen"
+},
+{
+"palabra":"nacer"
+},
+{
+"palabra":"naces"
+},
+{
+"palabra":"nacha"
+},
+{
+"palabra":"nacho"
+},
+{
+"palabra":"nacia"
+},
+{
+"palabra":"nacio"
+},
+{
+"palabra":"nacos"
+},
+{
+"palabra":"nacre"
+},
+{
+"palabra":"nadad"
+},
+{
+"palabra":"nadal"
+},
+{
+"palabra":"nadan"
+},
+{
+"palabra":"ñapas"
+},
+{
+"palabra":"ñaque"
+},
+{
+"palabra":"ñatas"
+},
+{
+"palabra":"ñatea"
+},
+{
+"palabra":"ñatee"
+},
+{
+"palabra":"ñateo"
+},
+{
+"palabra":"ñatos"
+},
+{
+"palabra":"ñecas"
+},
+{
+"palabra":"ñecla"
+},
+{
+"palabra":"ñecos"
+},
+{
+"palabra":"ñenga"
+},
+{
+"palabra":"ñengo"
+},
+{
+"palabra":"ñeque"
+},
+{
+"palabra":"obrad"
+},
+{
+"palabra":"obran"
+},
+{
+"palabra":"obrar"
+},
+{
+"palabra":"obras"
+},
+{
+"palabra":"obren"
+},
+{
+"palabra":"obres"
+},
+{
+"palabra":"obsta"
+},
+{
+"palabra":"obste"
+},
+{
+"palabra":"obsto"
+},
+{
+"palabra":"obten"
+},
+{
+"palabra":"obues"
+},
+{
+"palabra":"obvia"
+},
+{
+"palabra":"obvie"
+},
+{
+"palabra":"pacia"
+},
+{
+"palabra":"pacio"
+},
+{
+"palabra":"pacon"
+},
+{
+"palabra":"pacos"
+},
+{
+"palabra":"pacta"
+},
+{
+"palabra":"pacte"
+},
+{
+"palabra":"pacto"
+},
+{
+"palabra":"pacus"
+},
+{
+"palabra":"padre"
+},
+{
+"palabra":"pafia"
+},
+{
+"palabra":"pafio"
+},
+{
+"palabra":"pagad"
+},
+{
+"palabra":"pagan"
+},
+{
+"palabra":"quemi"
+},
+{
+"palabra":"quemo"
+},
+{
+"palabra":"quena"
+},
+{
+"palabra":"quepa"
+},
+{
+"palabra":"quepi"
+},
+{
+"palabra":"quepo"
+},
+{
+"palabra":"quera"
+},
+{
+"palabra":"quere"
+},
+{
+"palabra":"quero"
+},
+{
+"palabra":"queso"
+},
+{
+"palabra":"quias"
+},
+{
+"palabra":"quien"
+},
+{
+"palabra":"quier"
+},
+{
+"palabra":"rabio"
+},
+{
+"palabra":"rabis"
+},
+{
+"palabra":"rabon"
+},
+{
+"palabra":"rabos"
+},
+{
+"palabra":"racea"
+},
+{
+"palabra":"racee"
+},
+{
+"palabra":"racel"
+},
+{
+"palabra":"raceo"
+},
+{
+"palabra":"racha"
+},
+{
+"palabra":"rache"
+},
+{
+"palabra":"racho"
+},
+{
+"palabra":"racor"
+},
+{
+"palabra":"racos"
+},
+{
+"palabra":"sable"
+},
+{
+"palabra":"sabor"
+},
+{
+"palabra":"sabra"
+},
+{
+"palabra":"sabre"
+},
+{
+"palabra":"sacad"
+},
+{
+"palabra":"sacan"
+},
+{
+"palabra":"sacar"
+},
+{
+"palabra":"sacas"
+},
+{
+"palabra":"saces"
+},
+{
+"palabra":"sacha"
+},
+{
+"palabra":"sache"
+},
+{
+"palabra":"sacho"
+},
+{
+"palabra":"sacia"
+},
+{
+"palabra":"tabor"
+},
+{
+"palabra":"tabos"
+},
+{
+"palabra":"tabus"
+},
+{
+"palabra":"tacar"
+},
+{
+"palabra":"tacas"
+},
+{
+"palabra":"tacen"
+},
+{
+"palabra":"taces"
+},
+{
+"palabra":"tacet"
+},
+{
+"palabra":"tacha"
+},
+{
+"palabra":"tache"
+},
+{
+"palabra":"tacho"
+},
+{
+"palabra":"tacon"
+},
+{
+"palabra":"tacos"
+},
+{
+"palabra":"ufane"
+},
+{
+"palabra":"ufano"
+},
+{
+"palabra":"ugres"
+},
+{
+"palabra":"ujier"
+},
+{
+"palabra":"ujule"
+},
+{
+"palabra":"ulaga"
+},
+{
+"palabra":"ulala"
+},
+{
+"palabra":"ulano"
+},
+{
+"palabra":"ulema"
+},
+{
+"palabra":"ulpos"
+},
+{
+"palabra":"ultra"
+},
+{
+"palabra":"uluas"
+},
+{
+"palabra":"ulula"
+},
+{
+"palabra":"vacuo"
+},
+{
+"palabra":"vadea"
+},
+{
+"palabra":"vadee"
+},
+{
+"palabra":"vadeo"
+},
+{
+"palabra":"vades"
+},
+{
+"palabra":"vados"
+},
+{
+"palabra":"vafea"
+},
+{
+"palabra":"vafee"
+},
+{
+"palabra":"vafeo"
+},
+{
+"palabra":"vagad"
+},
+{
+"palabra":"vagan"
+},
+{
+"palabra":"vagar"
+},
+{
+"palabra":"vagas"
+},
+{
+"palabra":"yacon"
+},
+{
+"palabra":"yagan"
+},
+{
+"palabra":"yagas"
+},
+{
+"palabra":"yagua"
+},
+{
+"palabra":"yaiti"
+},
+{
+"palabra":"yales"
+},
+{
+"palabra":"yamao"
+},
+{
+"palabra":"yambo"
+},
+{
+"palabra":"yampa"
+},
+{
+"palabra":"yanas"
+},
+{
+"palabra":"yanta"
+},
+{
+"palabra":"yante"
+},
+{
+"palabra":"yanto"
+},
+{
+"palabra":"zafar"
+},
+{
+"palabra":"zafas"
+},
+{
+"palabra":"zafen"
+},
+{
+"palabra":"zafes"
+},
+{
+"palabra":"zafia"
+},
+{
+"palabra":"zafio"
+},
+{
+"palabra":"zafir"
+},
+{
+"palabra":"zafon"
+},
+{
+"palabra":"zafos"
+},
+{
+"palabra":"zafra"
+},
+{
+"palabra":"zafre"
+},
+{
+"palabra":"zagal"
+},
+{
+"palabra":"zagas"
+}
+	]
+}
