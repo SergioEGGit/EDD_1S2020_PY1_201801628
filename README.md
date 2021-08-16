@@ -2,6 +2,8 @@
 
 ## Language: C++
 
+## Tools: Graphviz
+
 Project Scrabble Game Seg: This system is a virtual version of the famous Scrabble game, it is a console application that has three options:
 1. File read: Allows you to upload a file.
 2. Game: Allows you to start the game, add players, add and distribute chips and start the game.
